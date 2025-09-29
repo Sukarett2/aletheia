@@ -179,8 +179,7 @@ pub fn update_custom(cfg: &Config) -> Result<bool> {
     create_dir_all(&cache_dir)?;
 
     for db in &cfg.custom_databases {
-        let mut request =
-            client.get(db).header(reqwest::header::USER_AGENT, concat!(env!("CARGO_PKG_NAME"), "/", env!("CARGO_PKG_VERSION")));
+        let mut request = client.get(db).header(header::USER_AGENT, concat!(env!("CARGO_PKG_NAME"), "/", env!("CARGO_PKG_VERSION")));
         let cached_etag = db_cache.databases.get(db).and_then(|meta| meta.etag.as_ref());
 
         if let Some(etag) = cached_etag {
