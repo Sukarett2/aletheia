@@ -49,8 +49,8 @@ pub fn setup(app: &slint::Weak<App>, config: &Rc<RefCell<AletheiaConfig>>) {
                 check_for_updates: ui_cfg.check_for_updates
             };
 
-            settings_logic.set_previous_save_dir(ui_cfg.save_dir.clone());
-            settings_logic.set_previous_steam_account_id(ui_cfg.steam_account_id.clone());
+            settings_logic.set_previous_save_dir(ui_cfg.save_dir);
+            settings_logic.set_previous_steam_account_id(ui_cfg.steam_account_id);
             settings_logic.set_previous_check_for_updates(ui_cfg.check_for_updates);
 
             AletheiaConfig::save(&new_config);
