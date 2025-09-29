@@ -49,7 +49,7 @@ impl HeroicScanner {
                 return None;
             };
 
-            return Some(manifest.products[0].name.clone());
+            return manifest.products.into_iter().next().map(|p| p.name);
         }
 
         #[cfg(all(unix, not(target_os = "macos")))]
