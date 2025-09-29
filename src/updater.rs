@@ -12,6 +12,7 @@ pub struct Release {
     pub body: String,
     pub tag_name: String,
     #[serde(rename = "prerelease")]
+    #[expect(clippy::struct_field_names, reason = "API consistency")]
     pub pre_release: bool,
     #[serde(rename = "html_url")]
     pub url: String
@@ -37,7 +38,7 @@ pub fn check() -> Result<UpdateStatus> {
     let response = client.get(RELEASES_URL).header(header::USER_AGENT, USER_AGENT).send()?.error_for_status()?;
 
     let releases: Vec<Release> = serde_json::from_reader(response)?;
-    let Some(latest_release) = releases.iter().find(|r| !r.pre_release) else {
+    let Some(latest_release) = releases.into_iter().find(|r| !r.pre_release) else {
         return Ok(UpdateStatus::UpToDate);
     };
 
@@ -45,7 +46,7 @@ pub fn check() -> Result<UpdateStatus> {
     let new_version = Version::parse(&latest_release.tag_name).unwrap();
 
     if current_version < new_version {
-        Ok(UpdateStatus::Available(latest_release.clone()))
+        Ok(UpdateStatus::Available(latest_release))
     } else {
         Ok(UpdateStatus::UpToDate)
     }
