@@ -4,7 +4,7 @@
 use crate::config::Config as AletheiaConfig;
 use crate::gamedb;
 use crate::scanner::SteamScanner;
-use crate::ui::app::{App, Config, DropdownOption, NotificationLogic, SettingsScreenLogic};
+use crate::ui::app::{App, Config, DropdownOption, GameLogic, NotificationLogic, SettingsScreenLogic};
 use slint::{ComponentHandle, Model, ModelRc, SharedString, VecModel};
 use std::cell::RefCell;
 use std::rc::Rc;
@@ -88,7 +88,10 @@ pub fn setup(app: &slint::Weak<App>, config: &Rc<RefCell<AletheiaConfig>>) {
             let notification_logic = app_weak.global::<NotificationLogic>();
 
             match gamedb::update() {
-                Ok(true) => notification_logic.invoke_show_success("GAMEDB_UPDATED".into()),
+                Ok(true) => {
+                    app_weak.global::<GameLogic>().invoke_refresh_games();
+                    notification_logic.invoke_show_success("GAMEDB_UPDATED".into());
+                }
                 Ok(false) => notification_logic.invoke_show_info("GAMEDB_UP_TO_DATE".into()),
                 Err(e) => {
                     notification_logic.invoke_show_error("GAMEDB_UPDATE_FAILED".into());
