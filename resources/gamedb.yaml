@@ -333,10 +333,10 @@ Elden Bling:
       - "{LocalLow}/Team SNEED/EldenBling/permaflags/*"
       - "{LocalLow}/Team SNEED/EldenBling/saved-inventories/*"
       - "{LocalLow}/Team SNEED/EldenBling/SaveFile.es3"
-Elden Ring:
+ELDEN RING:
   files:
     windows:
-      - "{AppData}/EldenRing/*"
+      - "{AppData}/EldenRing/*/*.sl2"
 "FATAL FRAME / PROJECT ZERO: Maiden of Black Water":
   files:
     windows:
