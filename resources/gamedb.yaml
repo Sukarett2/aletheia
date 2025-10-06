@@ -327,16 +327,16 @@ Dying Light 2:
   files:
     windows:
       - "{SteamUserData}/3008130/remote/out/save/*"
+ELDEN RING:
+  files:
+    windows:
+      - "{AppData}/EldenRing/*/*.sl2"
 Elden Bling:
   files:
     windows:
       - "{LocalLow}/Team SNEED/EldenBling/permaflags/*"
       - "{LocalLow}/Team SNEED/EldenBling/saved-inventories/*"
       - "{LocalLow}/Team SNEED/EldenBling/SaveFile.es3"
-ELDEN RING:
-  files:
-    windows:
-      - "{AppData}/EldenRing/*/*.sl2"
 "FATAL FRAME / PROJECT ZERO: Maiden of Black Water":
   files:
     windows:
