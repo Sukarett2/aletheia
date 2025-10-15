@@ -1133,7 +1133,7 @@ Yakuza 4 Remastered:
 Yakuza 5 Remastered:
   files:
     windows:
-      - "{GOGAppData}/56296606783325117/Storage/Shared/Files/*"
+      - "{GOGAppData}/56296606225266695/Storage/Shared/Files/*"
       - "{SteamUserData}/1105510/remote/*"
 "Yakuza 6: The Song of Life":
   files:
