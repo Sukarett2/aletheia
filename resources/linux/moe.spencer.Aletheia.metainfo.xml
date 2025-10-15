@@ -40,6 +40,33 @@
   </screenshots>
 
   <releases>
+    <release version="1.2.0" date="2025-10-15">
+      <url type="details">https://github.com/Spencer-0003/aletheia/releases/tag/1.2.0</url>
+      <description>
+        <p>Args: Reduce allocations.</p>
+        <p>Helpers: Clean up Steam code.</p>
+        <p>UI: Don't create a new vec to perform operation.</p>
+        <p>UI: Simplify all_filtered logic.</p>
+        <p>Logs: Warn instead of error if restoring without a backup.</p>
+        <p>UI: Reduce allocations when locating backup directory.</p>
+        <p>UI: Reduce allocations game name when refreshing games.</p>
+        <p>UI: Avoid cloning game.name on refresh.</p>
+        <p>UI: Made most notification messages translatable.</p>
+        <p>UI: Remove periods from notifications.</p>
+        <p>CLI: Clean up Steam helper.</p>
+        <p>GameDB: Add SILENT HILL f.</p>
+        <p>UI: Remove unused property in scrollable.</p>
+        <p>UI: Implement screen reader hints.</p>
+        <p>UI: Set cursor to pointer on game card hover.</p>
+        <p>GameDB: Add Sonic Racing: CrossWorlds.</p>
+        <p>Translations: Add Japanese.</p>
+        <p>UI: Implement theme engine.</p>
+        <p>Updater: Eliminate cloning.</p>
+        <p>Settings: Don't clone on save.</p>
+        <p>GameDB: Fix ELDEN RING save location.</p>
+        <p>GameDB: Fix Yakuza 5 Remastered GOG path.</p>
+      </description>
+    </release>
     <release version="1.1.1" date="2025-09-15">
       <url type="details">https://github.com/Spencer-0003/aletheia/releases/tag/1.1.1</url>
       <description>
