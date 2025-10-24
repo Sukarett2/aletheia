@@ -2,79 +2,82 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2025-09-22 17:32+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-10-24 15:38+0000\n"
+"Last-Translator: Feike Donia <feikedonia@proton.me>\n"
+"Language-Team: Afrikaans <https://hosted.weblate.org/projects/aletheia/ui/af/"
+">\n"
 "Language: af\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.14.1-dev\n"
 
 #: ui/updater.slint:28
 msgctxt "Updater"
 msgid "Update Available"
-msgstr ""
+msgstr "Bywerkings beskikbaar"
 
 #: ui/updater.slint:51
 msgctxt "Updater"
 msgid "Current"
-msgstr ""
+msgstr "Huidig"
 
 #: ui/updater.slint:81
 msgctxt "Updater"
 msgid "New"
-msgstr ""
+msgstr "Nuut"
 
 #: ui/updater.slint:105
 msgctxt "Updater"
 msgid "What's New"
-msgstr ""
+msgstr "Dis nuut"
 
 #: ui/updater.slint:142
 msgctxt "Updater"
 msgid "Skip"
-msgstr ""
+msgstr "Slaan oor"
 
 #: ui/updater.slint:149
 msgctxt "Updater"
 msgid "Download"
-msgstr ""
+msgstr "Laai af"
 
 #: ui/screens/settings.slint:59
 msgctxt "Settings"
 msgid "Game Data Location"
-msgstr ""
+msgstr "Speldataligging"
 
 #: ui/screens/settings.slint:73
 msgctxt "Settings"
 msgid "Choose where your games will be saved"
-msgstr ""
+msgstr "Kies waar jy jou speletjies wil stoor"
 
 #: ui/screens/settings.slint:91
 msgctxt "Settings"
 msgid "Browse"
-msgstr ""
+msgstr "Blaai"
 
 #: ui/screens/settings.slint:120
 msgctxt "Settings"
 msgid "Steam Account"
-msgstr ""
+msgstr "Steam-rekening"
 
 #: ui/screens/settings.slint:137
 msgctxt "Settings"
 msgid "Choose the Steam account for your games"
-msgstr ""
+msgstr "Kies die Steam-rekening vir jou speletjies"
 
 #: ui/screens/settings.slint:144
 msgctxt "Settings"
 msgid "Only affects games that save in the Steam userdata directory"
 msgstr ""
+"Dit raak slegs speletjies wat in die Steam-gebruikersdata-lêergids gestoor is"
 
 #: ui/screens/settings.slint:156
 msgctxt "Settings"
 msgid "Select an account…"
-msgstr ""
+msgstr "Kies 'n rekening…"
 
 #: ui/screens/settings.slint:183
 msgctxt "Settings"
@@ -84,22 +87,22 @@ msgstr ""
 #: ui/screens/settings.slint:197
 msgctxt "Settings"
 msgid "Download the latest copy of the GameDB"
-msgstr ""
+msgstr "Laai die nuutste weergawe van GameDB af"
 
 #: ui/screens/settings.slint:206
 msgctxt "Settings"
 msgid "Update GameDB"
-msgstr ""
+msgstr "Werk GameDB by"
 
 #: ui/screens/settings.slint:233
 msgctxt "Settings"
 msgid "Updates"
-msgstr ""
+msgstr "Opdaterings"
 
 #: ui/screens/settings.slint:247
 msgctxt "Settings"
 msgid "Configure automatic update checking"
-msgstr ""
+msgstr "Stel dit op om outomaties vir opdaterings te soek"
 
 #: ui/screens/settings.slint:258
 msgctxt "Settings"
