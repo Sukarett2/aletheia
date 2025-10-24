@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2025-09-22 17:32+0000\n"
-"PO-Revision-Date: 2025-10-24 14:35+0000\n"
+"PO-Revision-Date: 2025-10-24 15:38+0000\n"
 "Last-Translator: Feike Donia <feikedonia@proton.me>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/aletheia/ui/nl/>\n"
 "Language: nl\n"
@@ -217,7 +217,7 @@ msgstr "Over"
 #: ui/logic/notification.slint:30
 msgctxt "NotificationLogic"
 msgid "Set your Steam account in settings"
-msgstr "Koppel jouw Steam-account in de instellingen"
+msgstr "Koppel je Steam-account in de instellingen"
 
 #: ui/logic/notification.slint:31
 msgctxt "NotificationLogic"
