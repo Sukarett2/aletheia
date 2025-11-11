@@ -5,7 +5,7 @@
 #![deny(clippy::if_then_some_else_none)]
 #![deny(clippy::option_if_let_else)]
 #![deny(clippy::allow_attributes_without_reason)]
-#![deny(clippy::string_to_string)]
+#![deny(clippy::implicit_clone)]
 #![deny(clippy::get_unwrap)]
 #![deny(clippy::str_to_string)]
 #![allow(clippy::unreadable_literal, reason = "'Readable' literals are ugly")]
