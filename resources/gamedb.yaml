@@ -345,6 +345,10 @@ Elden Bling:
   files:
     windows:
       - "{Documents}/KoeiTecmo/FATAL FRAME MOL/SAVEDATA"
+FUNKO FUSION:
+  files:
+    windows:
+      - "{LocalAppData}/FunkoFusion/Saved/SaveGames/*"
 Fallout:
   files:
     windows:
