@@ -581,6 +581,10 @@ Lords of the Fallen:
   files:
     windows:
       - "{LocalAppData}/Bloom&Rage/Saved/SaveGames/*/*.sav"
+"MURDERED: SOUL SUSPECT":
+  files:
+    windows:
+      - "{SteamUserData}/233290/remote/*"
 MUSYNX:
   files:
     windows:
