@@ -585,7 +585,7 @@ Lords of the Fallen:
   files:
     windows:
       - "{SteamUserData}/233290/remote/profile.bin"
-      - "{SteamUserData}/233290/remote/SaveData/*/*.sav"
+      - "{SteamUserData}/233290/remote/SaveData/*/*.SAV"
 MUSYNX:
   files:
     windows:
