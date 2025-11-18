@@ -584,7 +584,8 @@ Lords of the Fallen:
 "MURDERED: SOUL SUSPECT":
   files:
     windows:
-      - "{SteamUserData}/233290/remote/*"
+      - "{SteamUserData}/233290/remote/profile.bin"
+      - "{SteamUserData}/233290/remote/SaveData/*/*.sav"
 MUSYNX:
   files:
     windows:
