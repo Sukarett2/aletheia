@@ -20,6 +20,7 @@ Add game save locations in `resources/gamedb.yaml`; entries must be alphabetical
 | `{XDGConfig}`     | Linux XDG config directory                                                                    |
 | `{XDGData}`       | Linux XDG data directory                                                                      |
 | `{GOGAppData}`    | GOG application data directory                                                                |
+| `{SteamID64}`     | Steam ID64                                                                                    |
 | `{SteamUserData}` | Steam userdata directory                                                                      |
 
 Example entry:

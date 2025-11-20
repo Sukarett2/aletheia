@@ -7,6 +7,8 @@ use std::collections::HashMap;
 use std::fs::File;
 use steamlocate::SteamDir;
 
+const STEAM_ID64_BASE: u64 = 76561197960265728;
+
 #[derive(Deserialize, Debug)]
 struct LoginUsersFile {
     #[serde(flatten)]
@@ -22,8 +24,12 @@ pub struct LoginUser {
 pub struct SteamScanner;
 
 impl SteamScanner {
+    pub const fn id3_to_id64(id3: u64) -> u64 {
+        id3 + STEAM_ID64_BASE
+    }
+
     pub const fn id64_to_id3(id64: u64) -> u64 {
-        id64 - 76561197960265728
+        id64 - STEAM_ID64_BASE
     }
 
     pub fn get_users() -> Option<HashMap<String, LoginUser>> {

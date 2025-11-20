@@ -44,7 +44,7 @@ Alan Wake 2:
 "All in Abyss: Judge the Fake":
   files:
     windows:
-      - "{LocalLow}/AllianceArts/All in Abyss/SaveData/*/GameData/*.sav"
+      - "{LocalLow}/AllianceArts/All in Abyss/SaveData/{SteamID64}/GameData/*.sav"
 Alone in the Dark:
   files:
     windows:
@@ -902,7 +902,7 @@ Sonic Lost World:
 "Sonic Racing: CrossWorlds":
   files:
     windows:
-      - "{AppData}/SEGA/SonicRacingCrossWorlds/steam/*/*.sav"
+      - "{AppData}/SEGA/SonicRacingCrossWorlds/steam/{SteamID64}/*.sav"
 Sonic X Shadow Generations:
   files:
     windows:

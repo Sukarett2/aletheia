@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2025 Spencer
 // SPDX-License-Identifier: AGPL-3.0-only
 
+use crate::scanner::SteamScanner;
 use std::env::{home_dir, var_os};
 use std::fs::read_dir;
 use std::path::{Path, PathBuf};
@@ -85,6 +86,15 @@ fn shrink_path_components(path: &Path, replacements: &[(&str, PathBuf)]) -> Path
         if let Ok(stripped) = path.strip_prefix(replacement) {
             let mut new_path = PathBuf::from(pattern);
             new_path.push(stripped);
+
+            if let Some((steam_pattern, steam_replacement)) = replacements.iter().find(|(p, _)| *p == "{SteamID64}") {
+                let steam_str = steam_replacement.to_string_lossy();
+                let path_str = new_path.to_string_lossy();
+                if path_str.contains(steam_str.as_ref()) {
+                    return PathBuf::from(path_str.replace(steam_str.as_ref(), steam_pattern));
+                }
+            }
+
             return new_path;
         }
     }
@@ -119,6 +129,8 @@ pub fn expand_path(path: &Path, installation_dir: Option<&Path>, prefix: Option<
         let windows_app_data = user.join("AppData");
         let documents = user.join("Documents");
 
+        let steam_id_64 = steam_account_id
+            .map_or_else(|| PathBuf::from("*"), |id| PathBuf::from(SteamScanner::id3_to_id64(id.parse().unwrap()).to_string()));
         let steam_user_data = steam_account_id
             .map_or_else(|| linux_app_data.join("Steam/userdata/[0-9]*"), |id| linux_app_data.join("Steam/userdata").join(id));
 
@@ -129,6 +141,7 @@ pub fn expand_path(path: &Path, installation_dir: Option<&Path>, prefix: Option<
             ("{LocalAppData}", windows_app_data.join("Local")),
             ("{LocalLow}", windows_app_data.join("LocalLow")),
             ("{GOGAppData}", windows_app_data.join("Local").join("GOG.com/Galaxy/Applications")),
+            ("{SteamID64}", steam_id_64),
             ("{SteamUserData}", steam_user_data)
         ]);
     }
@@ -150,6 +163,8 @@ pub fn expand_path(path: &Path, installation_dir: Option<&Path>, steam_account_i
     let local_app_data = app_data();
     let home_dir = home();
 
+    let steam_id_64 = steam_account_id
+            .map_or_else(|| PathBuf::from("*"), |id| PathBuf::from(SteamScanner::id3_to_id64(id.parse().unwrap()).to_string()));
     let steam_user_data = {
         let base_path = steamlocate::SteamDir::locate()
             .map_or_else(|_| PathBuf::from("C:/Program Files (x86)/Steam"), |dir| dir.path().to_path_buf());
@@ -165,6 +180,7 @@ pub fn expand_path(path: &Path, installation_dir: Option<&Path>, steam_account_i
         ("{LocalAppData}", local_app_data.clone()),
         ("{LocalLow}", local_app_data.parent().unwrap().join("LocalLow")),
         ("{GOGAppData}", local_app_data.join("GOG.com/Galaxy/Applications")),
+        ("{SteamID64}", steam_id_64),
         ("{SteamUserData}", steam_user_data)
     ]);
 
@@ -181,10 +197,15 @@ pub fn expand_path(path: &Path, installation_dir: Option<&Path>, prefix: Option<
 
     let home_dir = home();
     let application_support = home_dir.join("Library/Application Support"); // app_data is not used here as most games don't use the XDG spec on MacOS
+    let steam_id_64 = steam_account_id
+            .map_or_else(|| PathBuf::from("*"), |id| PathBuf::from(SteamScanner::id3_to_id64(id.parse().unwrap()).to_string()));
     let steam_user_data = steam_account_id
         .map_or_else(|| application_support.join("Steam/userdata/[0-9]*"), |id| application_support.join("Steam/userdata").join(id));
 
-    replacements.push(("{SteamUserData}", steam_user_data));
+    replacements.extend([
+        ("{SteamID64}", steam_id_64),
+        ("{SteamUserData}", steam_user_data)
+    ]);
 
     if let Some(wine_prefix) = prefix {
         let username = var_os("USER").unwrap();
@@ -235,6 +256,8 @@ pub fn shrink_path(path: &Path, installation_dir: Option<&Path>, prefix: Option<
         let user = drive_c.join("users").join(username);
         let windows_app_data = user.join("AppData");
 
+        let steam_id_64 = steam_account_id
+            .map_or_else(|| PathBuf::from("*"), |id| PathBuf::from(SteamScanner::id3_to_id64(id.parse().unwrap()).to_string()));
         let steam_user_data = steam_account_id
             .map_or_else(|| linux_app_data.join("Steam/userdata/[0-9]*"), |id| linux_app_data.join("Steam/userdata").join(id));
 
@@ -245,6 +268,7 @@ pub fn shrink_path(path: &Path, installation_dir: Option<&Path>, prefix: Option<
             ("{Documents}", user.join("Documents")),
             ("{Home}", user),
             ("{GOGAppData}", windows_app_data.join("Local").join("GOG.com/Galaxy/Applications")),
+            ("{SteamID64}", steam_id_64),
             ("{SteamUserData}", steam_user_data)
         ]);
     }
@@ -266,6 +290,8 @@ pub fn shrink_path(path: &Path, installation_dir: Option<&Path>, steam_account_i
     let local_app_data = config();
     let home_dir = home();
 
+    let steam_id_64 = steam_account_id
+            .map_or_else(|| PathBuf::from("*"), |id| PathBuf::from(SteamScanner::id3_to_id64(id.parse().unwrap()).to_string()));
     let steam_user_data = {
         let base_path = steamlocate::SteamDir::locate()
             .map_or_else(|_| PathBuf::from("C:/Program Files (x86)/Steam"), |dir| dir.path().to_path_buf());
@@ -281,6 +307,7 @@ pub fn shrink_path(path: &Path, installation_dir: Option<&Path>, steam_account_i
         ("{Documents}", home_dir.join("Documents")),
         ("{Home}", home_dir),
         ("{GOGAppData}", local_app_data.join("GOG.com/Galaxy/Applications")),
+        ("{SteamID64}", steam_id_64),
         ("{SteamUserData}", steam_user_data)
     ]);
 
@@ -297,10 +324,15 @@ pub fn shrink_path(path: &Path, installation_dir: Option<&Path>, prefix: Option<
 
     let home_dir = home();
     let application_support = home_dir.join("Library/Application Support");
+    let steam_id_64 = steam_account_id
+            .map_or_else(|| PathBuf::from("*"), |id| PathBuf::from(SteamScanner::id3_to_id64(id.parse().unwrap()).to_string()));
     let steam_user_data = steam_account_id
         .map_or_else(|| application_support.join("Steam/userdata/[0-9]*"), |id| application_support.join("Steam/userdata").join(id));
 
-    replacements.push(("{SteamUserData}", steam_user_data));
+    replacements.extend([
+        ("{SteamID64}", steam_id_64),
+        ("{SteamUserData}", steam_user_data)
+    ]);
 
     if let Some(wine_prefix) = prefix {
         let username = var_os("USER").unwrap();
@@ -358,19 +390,23 @@ mod tests {
         let home_dir = home();
         let root_dir = home_dir.join("Games/Unit Test");
 
-        let save_file_1 = Path::new("{LocalLow}/AllianceArts/All in Abyss/SaveData/EXAMPLE_STEAM_ID/GameData/GameSaveData_0.sav");
+        let save_file_1 = Path::new("{LocalLow}/AllianceArts/All in Abyss/SaveData/{SteamID64}/GameData/GameSaveData_0.sav");
         let save_file_2 = Path::new("{GameRoot}/SAVEDATA/SonicDX01.snc");
+        let gabe_steam_id3 = "22202";
+        let gabe_steam_id64 = "76561197960287930";
 
         #[cfg(unix)]
         {
             let prefix = home_dir.join("Games/UnitTest");
 
             assert_eq!(
-                expand_path(save_file_1, None, Some(&prefix), None),
+                expand_path(save_file_1, None, Some(&prefix), Some(&gabe_steam_id3)),
                 prefix
                     .join("drive_c/users")
                     .join(username)
-                    .join("AppData/LocalLow/AllianceArts/All in Abyss/SaveData/EXAMPLE_STEAM_ID/GameData/GameSaveData_0.sav")
+                    .join("AppData/LocalLow/AllianceArts/All in Abyss/SaveData")
+                    .join(gabe_steam_id64)
+                    .join("/GameData/GameSaveData_0.sav")
             );
             assert_eq!(expand_path(save_file_2, Some(&root_dir), None, None), root_dir.join("SAVEDATA/SonicDX01.snc"));
         }
@@ -396,8 +432,11 @@ mod tests {
             let save_file_3 = Path::new("{Documents}/My Games/Terraria/Players/UnitTest.plr");
 
             assert_eq!(
-                expand_path(save_file_1, None, None),
-                home_dir.join("AppData/LocalLow/AllianceArts/All in Abyss/SaveData/EXAMPLE_STEAM_ID/GameData/GameSaveData_0.sav")
+                expand_path(save_file_1, None, Some(&gabe_steam_id3)),
+                home_dir
+                    .join("AppData/LocalLow/AllianceArts/All in Abyss/SaveData")
+                    .join(gabe_steam_id64)
+                    .join("GameData/GameSaveData_0.sav")
             );
             assert_eq!(expand_path(save_file_2, Some(&root_dir), None), root_dir.join("SAVEDATA/SonicDX01.snc"));
             assert_eq!(expand_path(save_file_3, None, None), home_dir.join("Documents/My Games/Terraria/Players/UnitTest.plr"));
