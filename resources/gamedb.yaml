@@ -629,7 +629,7 @@ McOsu:
 "Metaphor: ReFantazio":
   files:
     windows:
-      - "{AppData}/SEGA/METAPHOR/Steam/*/*"
+      - "{AppData}/SEGA/METAPHOR/Steam/{SteamID64}/*.sav"
 Metro 2033 Redux:
   files:
     windows:
