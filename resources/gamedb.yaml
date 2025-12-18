@@ -716,6 +716,10 @@ Nightmare Kart:
   files:
     windows:
       - "{LocalAppData}/NMKART/Saved/SaveGames/*"
+Obscure:
+  files:
+    windows:
+      - "{SteamUserData}/254460/remote/game*.sav"
 "Octodad: Dadliest Catch":
   files:
     windows:
