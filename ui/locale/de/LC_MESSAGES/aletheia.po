@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2025-09-22 17:32+0000\n"
-"PO-Revision-Date: 2025-09-07 00:28+0000\n"
-"Last-Translator: \"J. Lavoie\" <j.lavoie@net-c.ca>\n"
+"PO-Revision-Date: 2025-12-17 19:00+0000\n"
+"Last-Translator: Oliver <oliver.puff@gmx.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/aletheia/ui/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.15.1-dev\n"
 
 #: ui/updater.slint:28
 msgctxt "Updater"
@@ -216,7 +216,7 @@ msgstr "Über"
 #: ui/logic/notification.slint:30
 msgctxt "NotificationLogic"
 msgid "Set your Steam account in settings"
-msgstr ""
+msgstr "Verknüpfe deinen Steam Account in den Einstellungen"
 
 #: ui/logic/notification.slint:31
 msgctxt "NotificationLogic"
@@ -226,25 +226,22 @@ msgstr ""
 #: ui/logic/notification.slint:32
 msgctxt "NotificationLogic"
 msgid "Successfully saved settings"
-msgstr ""
+msgstr "Einstellungen erfolgreich gespeichert"
 
 #: ui/logic/notification.slint:33
 msgctxt "NotificationLogic"
 msgid "Successfully updated GameDB"
-msgstr ""
+msgstr "GameDB erfolgreich aktualisiert"
 
 #: ui/logic/notification.slint:34
 msgctxt "NotificationLogic"
 msgid "GameDB is already up to date"
-msgstr ""
+msgstr "GameDB ist bereits auf dem neuesten Stand"
 
 #: ui/logic/notification.slint:35
-#, fuzzy
-#| msgctxt "Settings"
-#| msgid "Update GameDB"
 msgctxt "NotificationLogic"
 msgid "Failed to update GameDB"
-msgstr "Aktulisiere die GameDB"
+msgstr "GameDB konnte nicht aktualisiert werden"
 
 #: ui/components/dropdown.slint:11
 msgctxt "Dropdown"
