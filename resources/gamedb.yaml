@@ -309,6 +309,10 @@ Dishonored 2:
   files:
     windows:
       - "{AppData}/Disney Interactive Studios/Epic Mickey 2/Save/*"
+Dispatch:
+  files:
+    windows:
+      - "{LocalAppData}/Dispatch/Saved/SaveGames/*.sav"
 DmC Devil May Cry:
   files:
     windows:
