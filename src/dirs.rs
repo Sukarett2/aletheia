@@ -164,7 +164,7 @@ pub fn expand_path(path: &Path, installation_dir: Option<&Path>, steam_account_i
     let home_dir = home();
 
     let steam_id_64 = steam_account_id
-            .map_or_else(|| PathBuf::from("*"), |id| PathBuf::from(SteamScanner::id3_to_id64(id.parse().unwrap()).to_string()));
+        .map_or_else(|| PathBuf::from("*"), |id| PathBuf::from(SteamScanner::id3_to_id64(id.parse().unwrap()).to_string()));
     let steam_user_data = {
         let base_path = steamlocate::SteamDir::locate()
             .map_or_else(|_| PathBuf::from("C:/Program Files (x86)/Steam"), |dir| dir.path().to_path_buf());
@@ -198,14 +198,11 @@ pub fn expand_path(path: &Path, installation_dir: Option<&Path>, prefix: Option<
     let home_dir = home();
     let application_support = home_dir.join("Library/Application Support"); // app_data is not used here as most games don't use the XDG spec on MacOS
     let steam_id_64 = steam_account_id
-            .map_or_else(|| PathBuf::from("*"), |id| PathBuf::from(SteamScanner::id3_to_id64(id.parse().unwrap()).to_string()));
+        .map_or_else(|| PathBuf::from("*"), |id| PathBuf::from(SteamScanner::id3_to_id64(id.parse().unwrap()).to_string()));
     let steam_user_data = steam_account_id
         .map_or_else(|| application_support.join("Steam/userdata/[0-9]*"), |id| application_support.join("Steam/userdata").join(id));
 
-    replacements.extend([
-        ("{SteamID64}", steam_id_64),
-        ("{SteamUserData}", steam_user_data)
-    ]);
+    replacements.extend([("{SteamID64}", steam_id_64), ("{SteamUserData}", steam_user_data)]);
 
     if let Some(wine_prefix) = prefix {
         let username = var_os("USER").unwrap();
@@ -291,7 +288,7 @@ pub fn shrink_path(path: &Path, installation_dir: Option<&Path>, steam_account_i
     let home_dir = home();
 
     let steam_id_64 = steam_account_id
-            .map_or_else(|| PathBuf::from("*"), |id| PathBuf::from(SteamScanner::id3_to_id64(id.parse().unwrap()).to_string()));
+        .map_or_else(|| PathBuf::from("*"), |id| PathBuf::from(SteamScanner::id3_to_id64(id.parse().unwrap()).to_string()));
     let steam_user_data = {
         let base_path = steamlocate::SteamDir::locate()
             .map_or_else(|_| PathBuf::from("C:/Program Files (x86)/Steam"), |dir| dir.path().to_path_buf());
@@ -325,14 +322,11 @@ pub fn shrink_path(path: &Path, installation_dir: Option<&Path>, prefix: Option<
     let home_dir = home();
     let application_support = home_dir.join("Library/Application Support");
     let steam_id_64 = steam_account_id
-            .map_or_else(|| PathBuf::from("*"), |id| PathBuf::from(SteamScanner::id3_to_id64(id.parse().unwrap()).to_string()));
+        .map_or_else(|| PathBuf::from("*"), |id| PathBuf::from(SteamScanner::id3_to_id64(id.parse().unwrap()).to_string()));
     let steam_user_data = steam_account_id
         .map_or_else(|| application_support.join("Steam/userdata/[0-9]*"), |id| application_support.join("Steam/userdata").join(id));
 
-    replacements.extend([
-        ("{SteamID64}", steam_id_64),
-        ("{SteamUserData}", steam_user_data)
-    ]);
+    replacements.extend([("{SteamID64}", steam_id_64), ("{SteamUserData}", steam_user_data)]);
 
     if let Some(wine_prefix) = prefix {
         let username = var_os("USER").unwrap();
