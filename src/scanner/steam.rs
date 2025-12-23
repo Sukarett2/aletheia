@@ -64,6 +64,7 @@ impl Scanner for SteamScanner {
                 continue; // This can fail if running in Flatpak and permissions haven't been granted
             };
 
+            #[cfg(all(unix, not(target_os = "macos")))]
             let lib_path = lib.path();
             for app in lib.apps() {
                 let game = app.unwrap();
