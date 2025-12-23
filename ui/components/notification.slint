@@ -30,9 +30,9 @@ export component Notification inherits Rectangle {
 
   private property <bool> animated_in: false;
   private property <bool> should_close: false;
-  private property <image> icon: notification-type == NotificationType.SUCCESS ? @image-url("../assets/check.svg") :
-                                 notification-type == NotificationType.ERROR ? @image-url("../assets/cancel.svg") :
-                                 notification-type == NotificationType.WARNING ? @image-url("../assets/warning.svg") :
+  private property <image> icon: notification_type == NotificationType.SUCCESS ? @image-url("../assets/check.svg") :
+                                 notification_type == NotificationType.ERROR ? @image-url("../assets/cancel.svg") :
+                                 notification_type == NotificationType.WARNING ? @image-url("../assets/warning.svg") :
                                  @image-url("../assets/info.svg");
 
   Timer {
