@@ -64,6 +64,7 @@ impl Scanner for SteamScanner {
                 continue; // This can fail if running in Flatpak and permissions haven't been granted
             };
 
+            let lib_path = lib.path();
             for app in lib.apps() {
                 let game = app.unwrap();
                 let install_dir = lib.resolve_app_dir(&game);
@@ -74,9 +75,7 @@ impl Scanner for SteamScanner {
                     installation_dir: Some(install_dir),
                     #[cfg(all(unix, not(target_os = "macos")))]
                     prefix: {
-                        let prefix_directory =
-                            steam_directory.path().join("steamapps/compatdata").join(game.app_id.to_string()).join("pfx");
-
+                        let prefix_directory = lib_path.join("steamapps/compatdata").join(game.app_id.to_string()).join("pfx");
                         prefix_directory.exists().then_some(prefix_directory)
                     },
                     #[cfg(target_os = "macos")]
