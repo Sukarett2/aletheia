@@ -40,6 +40,21 @@
   </screenshots>
 
   <releases>
+    <release version="1.2.1" date="2025-12-23">
+      <url type="details">https://github.com/Spencer-0003/aletheia/releases/tag/1.2.1</url>
+      <description>
+        <p>Translations: Add Afrikaans.</p>
+        <p>Translations: Add Dutch.</p>
+        <p>GameDB: Add MURDERED: SOUL SUSPECT.</p>
+        <p>GameDB: Add FUNKO FUSION.</p>
+        <p>Dirs: Support SteamID64 placeholder.</p>
+        <p>GameDB: Add Obscure.</p>
+        <p>Translations: Add missing German strings.</p>
+        <p>GameDB: Add Dispatch.</p>
+        <p>GameDB: Add Street Fighter 6.</p>
+        <p>Steam: Fix missing prefixes for games installed on different drives.</p>
+      </description>
+    </release>
     <release version="1.2.0" date="2025-10-15">
       <url type="details">https://github.com/Spencer-0003/aletheia/releases/tag/1.2.0</url>
       <description>

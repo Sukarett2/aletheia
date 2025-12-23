@@ -3,7 +3,7 @@
 
 [package]
 name = "aletheia"
-version = "1.2.0"
+version = "1.2.1"
 authors = ["Spencer"]
 description = "Game save backup tool"
 edition = "2024"
