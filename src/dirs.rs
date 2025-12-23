@@ -284,7 +284,7 @@ pub fn shrink_path(path: &Path, installation_dir: Option<&Path>, steam_account_i
     }
 
     let roaming_app_data = config();
-    let local_app_data = config();
+    let local_app_data = app_data();
     let home_dir = home();
 
     let steam_id_64 = steam_account_id
