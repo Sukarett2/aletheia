@@ -938,6 +938,10 @@ Stray:
   files:
     windows:
       - "{LocalAppData}/Hk_project/Saved/SaveGames/*"
+Street Fighter 6:
+  files:
+    windows:
+      - "{SteamUserData}/1364780/remote/win64_save/*"
 Sunset Overdrive:
   files:
     windows:
