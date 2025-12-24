@@ -942,6 +942,10 @@ Street Fighter 6:
   files:
     windows:
       - "{SteamUserData}/1364780/remote/win64_save/*"
+Street Fighter V:
+  files:
+    windows:
+      - "{LocalAppData}/StreetFighterV/Saved/SaveGames/*"
 Sunset Overdrive:
   files:
     windows:
