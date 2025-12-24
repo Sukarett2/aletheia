@@ -33,7 +33,7 @@ fn main() {
 
     #[cfg(all(unix, not(target_os = "macos")))]
     {
-        let flatpak = std::env::var("FLATPAK_ID").is_ok() && std::fs::exists("/.flatpak-info").unwrap_or(false);
+        let flatpak = cfg!(flatpak_build);
         log::info!(
             "Aletheia v{} (Linux) (Flatpak: {}, AppImage: {})",
             env!("CARGO_PKG_VERSION"),
