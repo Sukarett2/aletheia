@@ -40,6 +40,15 @@
   </screenshots>
 
   <releases>
+    <release version="1.2.2" date="2025-12-24">
+      <url type="details">https://github.com/Spencer-0003/aletheia/releases/tag/1.2.2</url>
+      <description>
+        <p>Dirs: Fix LocalAppData in shrink_path on Windows.</p>
+        <p>GameDB: Add Street Fighter V.</p>
+        <p>Build: Detect Flatpak at compile time.</p>
+        <p>Steam: Fix possible crash from steamlocate bug.</p>
+      </description>
+    </release>
     <release version="1.2.1" date="2025-12-23">
       <url type="details">https://github.com/Spencer-0003/aletheia/releases/tag/1.2.1</url>
       <description>
