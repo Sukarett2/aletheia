@@ -56,12 +56,17 @@ impl Scanner for SteamScanner {
         };
 
         let Ok(libraries) = steam_directory.libraries() else {
+            log::warn!("Failed to detect Steam libraries.");
             return games; // This can fail if Steam is downloaded but never signed in
         };
 
         for library in libraries {
             let Ok(lib) = library else {
-                continue; // This can fail if running in Flatpak and permissions haven't been granted
+                #[cfg(flatpak_build)]
+                log::warn!("Failed to access Steam library, possibly blocked by Flatpak.");
+                #[cfg(not(flatpak_build))]
+                log::warn!("Failed to access Steam library.");
+                continue; // This can fail if running in Flatpak and permissions haven't been granted or if Steam is reporting an old/deleted library on another drive
             };
 
             #[cfg(all(unix, not(target_os = "macos")))]
@@ -87,7 +92,11 @@ impl Scanner for SteamScanner {
         }
 
         for shortcut in steam_directory.shortcuts().unwrap() {
-            let shortcut = shortcut.unwrap();
+            let Ok(shortcut) = shortcut else {
+                // This works around https://github.com/WilliamVenner/steamlocate-rs/issues/103
+                log::warn!("Failed to parse Steam shortcut.");
+                continue;
+            };
 
             games.push(Game {
                 name: shortcut.app_name,
