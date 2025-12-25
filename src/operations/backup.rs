@@ -4,7 +4,7 @@
 use crate::config::Config;
 use crate::dirs::{expand_path, shrink_path};
 use crate::file::hash_file;
-use crate::gamedb::{FileMetadata, GameDbEntry, GameInfo};
+use crate::gamedb::{FileMetadata, GameDbEntry, Manifest};
 use crate::scanner::Game;
 use crate::utils;
 use glob::glob;
@@ -28,7 +28,7 @@ pub fn backup_game(game: &Game, config: &Config, entry: &GameDbEntry) -> Result<
     let existing_manifest = manifest_path
         .exists()
         .then(|| File::open(&manifest_path).unwrap())
-        .map(|file| serde_yaml::from_reader::<File, GameInfo>(file).map_err(|_| Error::MalformedManifest))
+        .map(|file| serde_yaml::from_reader::<File, Manifest>(file).map_err(|_| Error::MalformedManifest))
         .transpose()?;
 
     let mut changed = false;
@@ -120,7 +120,7 @@ pub fn backup_game(game: &Game, config: &Config, entry: &GameDbEntry) -> Result<
         return Ok(false);
     }
 
-    let game_metadata = GameInfo { name: game.name.clone(), files: game_files };
+    let game_metadata = Manifest { name: game.name.clone(), files: game_files };
 
     serde_yaml::to_writer(File::create(&manifest_path).unwrap(), &game_metadata).unwrap();
 

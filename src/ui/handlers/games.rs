@@ -188,7 +188,7 @@ pub fn setup(app: &slint::Weak<App>, config: &Rc<RefCell<AletheiaConfig>>) {
                         continue;
                     }
 
-                    let Ok(manifest) = serde_yaml::from_reader::<File, gamedb::GameInfo>(File::open(manifest_path).unwrap()) else {
+                    let Ok(manifest) = serde_yaml::from_reader::<File, gamedb::Manifest>(File::open(manifest_path).unwrap()) else {
                         log::error!("Failed to parse {game_name}'s manifest.");
                         notification_logic.invoke_show_error(format!("{game_name}'s manifest is corrupted").into());
                         continue;

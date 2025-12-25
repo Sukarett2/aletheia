@@ -4,7 +4,7 @@
 use crate::config::Config;
 use crate::dirs::expand_path;
 use crate::file::hash_file;
-use crate::gamedb::GameInfo;
+use crate::gamedb::Manifest;
 use crate::scanner::Game;
 use std::fs::{copy, create_dir_all};
 use std::path::Path;
@@ -19,7 +19,7 @@ pub enum Error {
 
 pub type Result<T> = core::result::Result<T, Error>;
 
-pub fn restore_game(game_dir: &Path, manifest: &GameInfo, installed_games: &[Game], config: &Config) -> Result<bool> {
+pub fn restore_game(game_dir: &Path, manifest: &Manifest, installed_games: &[Game], config: &Config) -> Result<bool> {
     let steam_id = config.steam_account_id.as_deref();
     let game_name = &manifest.name;
 

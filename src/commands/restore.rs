@@ -45,7 +45,7 @@ impl Command for Restore {
                 continue;
             }
 
-            let Ok(manifest) = serde_yaml::from_reader::<File, gamedb::GameInfo>(File::open(manifest_path).unwrap()) else {
+            let Ok(manifest) = serde_yaml::from_reader::<File, gamedb::Manifest>(File::open(manifest_path).unwrap()) else {
                 eprintln!("Failed to parse {}'s manifest.", game_dir.file_name().unwrap().display());
                 continue;
             };

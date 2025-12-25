@@ -46,7 +46,7 @@ pub struct GameFiles {
 }
 
 #[derive(Deserialize, Serialize)]
-pub struct GameInfo {
+pub struct Manifest {
     pub name: String,
     pub files: Vec<FileMetadata>
 }

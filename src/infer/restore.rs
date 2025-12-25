@@ -38,7 +38,7 @@ pub fn restore(launcher: &str, config: &Config) {
             return;
         }
 
-        let Ok(manifest) = serde_yaml::from_reader::<File, gamedb::GameInfo>(File::open(manifest_path).unwrap()) else {
+        let Ok(manifest) = serde_yaml::from_reader::<File, gamedb::Manifest>(File::open(manifest_path).unwrap()) else {
             log::error!("Failed to parse {}'s manifest.", game_dir.file_name().unwrap().display());
             return;
         };
