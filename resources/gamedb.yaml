@@ -724,6 +724,10 @@ Obscure:
   files:
     windows:
       - "{SteamUserData}/254460/remote/game*.sav"
+Obscure 2:
+  files:
+    windows:
+      - "{SteamUserData}/254480/remote/*"
 "Octodad: Dadliest Catch":
   files:
     windows:
