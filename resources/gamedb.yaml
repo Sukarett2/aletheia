@@ -387,6 +387,10 @@ Fatal Twelve:
       - "{GameRoot}/game/game/saves/*"
     windows:
       - "{GameRoot}/game/game/saves/*"
+Final Exam:
+  files:
+    windows:
+      - "{SteamUserData}/233190/remote/*.sav"
 Find Love or Die Trying:
   files:
     windows:
