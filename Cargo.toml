@@ -23,7 +23,7 @@ env_logger = "0.11.8"
 glob = "0.3.2"
 keyvalues-serde = "0.2.2"
 log = "0.4.27"
-reqwest = { version = "0.12.20", features = ["blocking"] }
+reqwest = { version = "0.13.0", features = ["blocking"] }
 rfd = "0.16.0"
 semver = { version = "1.0.26", optional = true }
 serde = { version = "1.0.219", features = ["derive"] }
