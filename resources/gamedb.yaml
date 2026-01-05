@@ -1200,6 +1200,12 @@ Zombie Army Trilogy:
   files:
     windows:
       - "{SteamUserData}/301640/remote/PC_ProfileSaves/*"
+sm64coopdx:
+  files:
+    linux:
+      - "{XDGData}/sm64coopdx/sm64_save_file.bin"
+    windows:
+      - "{AppData}/sm64ex-coop/sm64_save_file.bin"
 tModLoader:
   files:
     linux:
