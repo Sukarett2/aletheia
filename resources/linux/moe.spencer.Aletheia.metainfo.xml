@@ -158,8 +158,16 @@
     </release>
   </releases>
 
+  <requires>
+    <control>keyboard</control>
+    <control>pointing</control>
+    <display_length compare="ge">768</display_length>
+  </requires>
+
   <url type="homepage">https://aletheia.spencer.moe</url>
   <url type="bugtracker">https://github.com/Spencer-0003/aletheia/issues</url>
   <url type="vcs-browser">https://github.com/Spencer-0003/aletheia</url>
   <url type="donation">https://github.com/Spencer-0003/aletheia?tab=readme-ov-file#support-the-project</url>
+  <url type="translate">https://hosted.weblate.org/projects/aletheia</url>
+  <url type="contribute">https://github.com/Spencer-0003/aletheia/blob/master/CONTRIBUTING.md</url>
 </component>
