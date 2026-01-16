@@ -827,6 +827,7 @@ Resident Evil Village:
 Rise of the Tomb Raider:
   files:
     windows:
+      - "{GOGAppData}/58668848197088414/Storage/Shared/Files/*"
       - "{SteamUserData}/391220/remote/*"
 SCARLET NEXUS:
   files:
