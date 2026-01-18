@@ -3,8 +3,8 @@
 
 use crate::file::hash_bytes;
 use serde::{Deserialize, Serialize};
-use std::fs::{File, metadata, read};
-use std::io::{Read, Seek, SeekFrom, Write};
+use std::fs::{File, metadata};
+use std::io::{Read, Seek, SeekFrom, Write, copy};
 use std::path::{Path, PathBuf};
 use std::time::SystemTime;
 
@@ -92,18 +92,22 @@ impl ArchiveWriter {
 
         for (mut entry, source_path) in self.files {
             let metadata = metadata(&source_path)?;
-            let data = read(&source_path)?;
-            let uncompressed_size = data.len();
+            let uncompressed_size = metadata.len();
+            let start_pos = file.stream_position()?;
 
-            let (compressed_data, compression) = if uncompressed_size >= 1024 {
-                (zstd::encode_all(&*data, 3).unwrap(), CompressionType::Zstd)
+            let mut source = File::open(&source_path)?;
+            let compression = if uncompressed_size >= 1024 {
+                let mut encoder = zstd::Encoder::new(&mut file, 3)?;
+                copy(&mut source, &mut encoder)?;
+                encoder.finish()?;
+                CompressionType::Zstd
             } else {
-                (data, CompressionType::None)
+                copy(&mut source, &mut file)?;
+                CompressionType::None
             };
 
-            let data_size = compressed_data.len() as u64;
-
-            file.write_all(&compressed_data)?;
+            let end_pos = file.stream_position()?;
+            let data_size = end_pos - start_pos;
 
             entry.compression = compression;
             entry.data_offset = next_offset;
