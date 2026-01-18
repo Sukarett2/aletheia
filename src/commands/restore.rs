@@ -2,25 +2,58 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 
 use super::{Args, Command};
+use crate::archive::ArchiveReader;
 use crate::cli_helpers::ensure_steam_account_selected;
 use crate::config::Config;
 use crate::gamedb;
 use crate::infer;
 use crate::operations::restore_game;
+use std::path::Path;
 
 pub struct Restore;
 
 impl Command for Restore {
     fn run(args: Args, config: &Config) {
-        if !config.save_dir.exists() {
-            eprintln!("Backup directory doesn't exist.");
-            return;
-        }
-
         let installed_games = gamedb::get_installed_games();
 
         if config.steam_account_id.is_none() && installed_games.iter().any(|g| g.source == "Steam") {
             ensure_steam_account_selected(config);
+        }
+
+        if args.positional.len() == 1 && args.positional[0].ends_with(".aletheia") {
+            let archive_path = Path::new(&args.positional[0]);
+            if !archive_path.exists() {
+                eprintln!("Archive file not found: {}", archive_path.display());
+                return;
+            }
+
+            let reader = match ArchiveReader::open(archive_path) {
+                Ok(r) => r,
+                Err(e) => {
+                    eprintln!("Failed to open archive: {e}");
+                    return;
+                }
+            };
+
+            let Some(game) = installed_games.iter().find(|g| g.name == reader.game) else {
+                eprintln!("{} is not installed.", reader.game);
+                return;
+            };
+
+            println!("Restoring {}", reader.game);
+
+            if let Err(e) = restore_game(game, config) {
+                eprintln!("Failed to restore {}: {e}", reader.game);
+            } else {
+                println!("Restored {}.", reader.game);
+            }
+
+            return;
+        }
+
+        if !config.save_dir.exists() {
+            eprintln!("Backup directory doesn't exist.");
+            return;
         }
 
         if let Some(launcher) = args.get_flag_value("infer") {

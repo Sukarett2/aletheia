@@ -55,7 +55,6 @@ pub struct ArchiveWriter {
 pub struct ArchiveReader {
     file: File,
     pub files: Vec<FileEntry>,
-    #[allow(unused, reason = "UI component not yet implemented")] // Waiting on https://github.com/slint-ui/slint/issues/1967
     pub game: String
 }
 
