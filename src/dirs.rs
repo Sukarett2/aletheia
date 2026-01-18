@@ -270,6 +270,8 @@ pub fn shrink_path(path: &Path, installation_dir: Option<&Path>, prefix: Option<
             ("{SteamID64}", steam_id_64),
             ("{SteamUserData}", steam_user_data)
         ]);
+    } else {
+        replacements.push(("{Home}", home()));
     }
 
     replacements.extend([("{XDGConfig}", config()), ("{XDGData}", linux_app_data)]);
