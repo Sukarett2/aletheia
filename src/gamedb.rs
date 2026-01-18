@@ -31,12 +31,12 @@ pub enum Error {
 
 pub type Result<T> = core::result::Result<T, Error>;
 
-#[derive(Clone, Debug, Deserialize, Serialize)]
+#[derive(Clone, Deserialize, Serialize)]
 pub struct GameDbEntry {
     pub files: GameFiles
 }
 
-#[derive(Clone, Debug, Deserialize, Serialize)]
+#[derive(Clone, Deserialize, Serialize)]
 pub struct GameFiles {
     pub windows: Option<Vec<String>>,
     #[cfg(all(unix, not(target_os = "macos")))]
@@ -51,7 +51,7 @@ pub struct Manifest {
     pub files: Vec<FileMetadata>
 }
 
-#[derive(Clone, Deserialize, Serialize)]
+#[derive(Deserialize, Serialize)]
 pub struct FileMetadata {
     pub hash: String,
     pub modified: std::time::SystemTime,
@@ -59,13 +59,13 @@ pub struct FileMetadata {
     pub size: u64
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Deserialize, Serialize)]
 struct CustomDbMetadata {
     etag: Option<String>,
     data: HashMap<String, GameDbEntry>
 }
 
-#[derive(Debug, Default, Deserialize, Serialize)]
+#[derive(Default, Deserialize, Serialize)]
 struct CustomDbCache {
     databases: HashMap<String, CustomDbMetadata>
 }

@@ -26,7 +26,7 @@ pub use xbox::XboxScanner;
 
 pub use heroic::HeroicScanner;
 
-#[derive(Clone, Debug)]
+#[derive(Clone)]
 pub struct Game {
     pub name: String,
     pub installation_dir: Option<PathBuf>,

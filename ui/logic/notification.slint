@@ -33,6 +33,11 @@ export global NotificationLogic {
       : key == "GAMEDB_UPDATED" ? @tr("Successfully updated GameDB")
       : key == "GAMEDB_UP_TO_DATE" ? @tr("GameDB is already up to date")
       : key == "GAMEDB_UPDATE_FAILED" ? @tr("Failed to update GameDB")
+      : key == "ARCHIVE_CORRUPTED" ? @tr("Archive corrupted")
+      : key == "INVALID_ARCHIVE" ? @tr("Invalid archive")
+      : key == "IO_ERROR" ? @tr("I/O error")
+      : key == "UNSUPPORTED_ARCHIVE_VERSION" ? @tr("Unsupported archive version")
+      : key == "NO_BACKUPS_FOUND" ? @tr("No backups found")
       : key
   }
 

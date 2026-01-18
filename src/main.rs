@@ -11,6 +11,7 @@
 #![allow(clippy::unreadable_literal, reason = "'Readable' literals are ugly")]
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
+mod archive;
 mod cli_helpers;
 mod commands;
 mod config;
@@ -18,6 +19,7 @@ mod dirs;
 mod file;
 mod gamedb;
 mod infer;
+mod migrate;
 mod operations;
 mod scanner;
 mod ui;
@@ -49,6 +51,8 @@ fn main() {
     log::info!("Aletheia v{} (Windows)", env!("CARGO_PKG_VERSION"));
 
     let config = config::Config::load();
+    migrate::run(&config); // TODO: Remove after 1.3.
+
     let mut args = std::env::args().skip(1);
 
     if let Some(cmd) = args.next() {

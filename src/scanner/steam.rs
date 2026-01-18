@@ -9,13 +9,13 @@ use steamlocate::SteamDir;
 
 const STEAM_ID64_BASE: u64 = 76561197960265728;
 
-#[derive(Deserialize, Debug)]
+#[derive(Deserialize)]
 struct LoginUsersFile {
     #[serde(flatten)]
     users: HashMap<String, LoginUser>
 }
 
-#[derive(Deserialize, Debug)]
+#[derive(Deserialize)]
 pub struct LoginUser {
     #[serde(rename = "PersonaName")]
     pub persona_name: String

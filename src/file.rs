@@ -6,6 +6,10 @@ use std::fs::File;
 use std::io::{BufReader, copy};
 use std::path::Path;
 
+pub fn hash_bytes(bytes: &[u8]) -> String {
+    blake3::hash(bytes).to_hex().to_string()
+}
+
 pub fn hash_file(file_path: &Path) -> String {
     let file = File::open(file_path).unwrap();
     let mut reader = BufReader::new(file);

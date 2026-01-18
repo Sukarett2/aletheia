@@ -1,14 +1,14 @@
 // SPDX-FileCopyrightText: 2025 Spencer
 // SPDX-License-Identifier: AGPL-3.0-only
 
+use crate::archive::Error as ArchiveError;
 use crate::config::Config as AletheiaConfig;
 use crate::gamedb;
-use crate::operations::{backup_game, restore_game};
+use crate::operations::{RestoreError, backup_game, restore_game};
 use crate::ui::app::{App, GameLogic, GamesScreenLogic, NotificationLogic, UiGame};
 use crate::utils;
 use slint::{ComponentHandle, Model, ModelRc, VecModel};
 use std::cell::RefCell;
-use std::fs::File;
 use std::rc::Rc;
 
 #[expect(clippy::too_many_lines, reason = "This is as simple as it's going to get")]
@@ -171,33 +171,25 @@ pub fn setup(app: &slint::Weak<App>, config: &Rc<RefCell<AletheiaConfig>>) {
 
                 let mut restored = 0;
                 for ui_game in selected_games.iter() {
-                    let game_name = &ui_game.name;
-                    let game_dir = cfg.save_dir.join(utils::sanitize_game_name(game_name).as_ref());
+                    let game = installed_games.iter().find(|g| *g.name == *ui_game.name).unwrap();
 
-                    if !game_dir.exists() || !game_dir.is_dir() {
-                        log::warn!("Attempted to restore {game_name} without any previous backups.");
-                        notification_logic.invoke_show_warning(format!("No backups found for {game_name}").into());
-                        continue;
-                    }
+                    if let Err(e) = restore_game(game, &cfg) {
+                        log::error!("Failed to restore {}: {e}", game.name);
 
-                    let manifest_path = game_dir.join("aletheia_manifest.yaml");
+                        let error_message = if let RestoreError::Archive(ae) = &e {
+                            match ae {
+                                ArchiveError::ChecksumMismatch(..) | ArchiveError::FileNotFound(_) => "ARCHIVE_CORRUPTED",
+                                ArchiveError::InvalidArchive | ArchiveError::Serialization(_) => "INVALID_ARCHIVE",
+                                ArchiveError::Io(_) => "IO_ERROR",
+                                ArchiveError::UnsupportedVersion(_) => "UNSUPPORTED_ARCHIVE_VERSION"
+                            }
+                        } else {
+                            "NO_BACKUPS_FOUND"
+                        };
 
-                    if !manifest_path.exists() {
-                        log::error!("{game_name} is missing a manifest file.");
-                        notification_logic.invoke_show_error(format!("No manifest found for {game_name}").into());
-                        continue;
-                    }
-
-                    let Ok(manifest) = serde_yaml::from_reader::<File, gamedb::Manifest>(File::open(manifest_path).unwrap()) else {
-                        log::error!("Failed to parse {game_name}'s manifest.");
-                        notification_logic.invoke_show_error(format!("{game_name}'s manifest is corrupted").into());
-                        continue;
-                    };
-
-                    if let Err(e) = restore_game(&game_dir, &manifest, &installed_games, &cfg) {
-                        log::error!("Failed to restore {}: {e}", manifest.name);
+                        notification_logic.invoke_show_error(error_message.into());
                     } else {
-                        log::info!("Successfully restored {game_name}");
+                        log::info!("Successfully restored {}", game.name);
                         restored += 1;
                     }
                 }

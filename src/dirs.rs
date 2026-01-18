@@ -400,7 +400,7 @@ mod tests {
                     .join(username)
                     .join("AppData/LocalLow/AllianceArts/All in Abyss/SaveData")
                     .join(gabe_steam_id64)
-                    .join("/GameData/GameSaveData_0.sav")
+                    .join("GameData/GameSaveData_0.sav")
             );
             assert_eq!(expand_path(save_file_2, Some(&root_dir), None, None), root_dir.join("SAVEDATA/SonicDX01.snc"));
         }

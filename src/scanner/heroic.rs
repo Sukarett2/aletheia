@@ -16,7 +16,7 @@ use crate::dirs::config;
 
 pub struct HeroicScanner;
 
-#[derive(Deserialize, Debug)]
+#[derive(Deserialize)]
 struct HeroicGOGGame {
     #[serde(rename = "appName")]
     app_id: String,
@@ -25,17 +25,17 @@ struct HeroicGOGGame {
     platform: String
 }
 
-#[derive(Deserialize, Debug)]
+#[derive(Deserialize)]
 struct HeroicGOGProduct {
     name: String
 }
 
-#[derive(Deserialize, Debug)]
+#[derive(Deserialize)]
 struct HeroicGOGGameManifest {
     products: Vec<HeroicGOGProduct>
 }
 
-#[derive(Deserialize, Debug)]
+#[derive(Deserialize)]
 struct HeroicGOGManifest {
     installed: Vec<HeroicGOGGame>
 }
