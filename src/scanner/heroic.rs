@@ -105,7 +105,7 @@ impl Scanner for HeroicScanner {
 
             #[cfg(unix)]
             let prefix = if game.platform == "windows" {
-                let game_config = heroic_path.join("GamesConfig").join(format!("{}.json", &game.app_id));
+                let game_config = heroic_path.join("GamesConfig").join(&game.app_id).with_extension("json");
 
                 if !game_config.exists() {
                     continue;

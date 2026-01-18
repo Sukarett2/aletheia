@@ -43,7 +43,7 @@ impl Scanner for LutrisScanner {
                 let path: String = row.get(1)?;
                 let platform: String = row.get(2)?;
                 let config_path: String = row.get(3)?;
-                Ok((name, PathBuf::from(path), platform, lutris_config_dir.join(format!("{config_path}.yml"))))
+                Ok((name, PathBuf::from(path), platform, lutris_config_dir.join(&config_path).with_extension("yml")))
             })
             .unwrap();
 
