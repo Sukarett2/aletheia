@@ -66,7 +66,9 @@ impl Scanner for LutrisScanner {
 
                 games.push(Game { name, installation_dir, prefix: Some(dir), source: "Lutris".into() });
             } else {
-                games.push(Game { name, installation_dir: Some(dir), prefix: None, source: "Lutris".into() });
+                let installation_dir = (!dir.as_os_str().is_empty()).then_some(dir);
+                // Flatpak games have their installation directory set as "" instead of None
+                games.push(Game { name, installation_dir, prefix: None, source: "Lutris".into() });
             }
         }
 
