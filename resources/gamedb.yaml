@@ -524,6 +524,10 @@ Hyperdimension Neptunia Re;Birth1:
   files:
     windows:
       - "{Documents}/My Games/Idea Factory International, Inc/Hyperdimension Neptunia Re;Birth1/*"
+Hytale:
+  files:
+    linux:
+      - "{Home}/.var/app/com.hypixel.HytaleLauncher/data/Hytale/UserData/Saves/**"
 I Walk Among Zombies Vol. 1:
   files:
     windows:
