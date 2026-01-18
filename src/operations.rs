@@ -5,5 +5,5 @@ mod backup;
 mod restore;
 
 pub use backup::backup_game;
-pub use restore::restore_game;
 pub use restore::Error as RestoreError;
+pub use restore::restore_game;
