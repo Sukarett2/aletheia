@@ -532,6 +532,10 @@ I Walk Among Zombies Vol. 1:
   files:
     windows:
       - "{AppData}/seacoxx/zombie/*"
+IW7-Mod:
+  files:
+    windows:
+      - "{GameRoot}/iw7-mod/players2/user/**/*"
 It Takes Two:
   files:
     windows:
