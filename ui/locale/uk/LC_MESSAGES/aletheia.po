@@ -2,17 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2026-01-17 08:38+0000\n"
-"PO-Revision-Date: 2025-09-22 21:31+0000\n"
+"PO-Revision-Date: 2026-01-18 10:24+0000\n"
 "Last-Translator: Максим Горпиніч <gorpinicmaksim0@gmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/aletheia/ui/uk/"
-">\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/aletheia/ui/"
+"uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #: ui/updater.slint:29
 msgctxt "Updater"
@@ -249,30 +249,27 @@ msgstr "Не вдалося оновити GameDB"
 #: ui/logic/notification.slint:36
 msgctxt "NotificationLogic"
 msgid "Archive corrupted"
-msgstr ""
+msgstr "Архів пошкоджено"
 
 #: ui/logic/notification.slint:37
 msgctxt "NotificationLogic"
 msgid "Invalid archive"
-msgstr ""
+msgstr "Недійсний архів"
 
 #: ui/logic/notification.slint:38
 msgctxt "NotificationLogic"
 msgid "I/O error"
-msgstr ""
+msgstr "Помилка вводу/виводу"
 
 #: ui/logic/notification.slint:39
 msgctxt "NotificationLogic"
 msgid "Unsupported archive version"
-msgstr ""
+msgstr "Непідтримувана версія архіву"
 
 #: ui/logic/notification.slint:40
-#, fuzzy
-#| msgctxt "Games"
-#| msgid "No games found"
 msgctxt "NotificationLogic"
 msgid "No backups found"
-msgstr "Ігор не знайдено"
+msgstr "Резервних копій не знайдено"
 
 #: ui/components/dropdown.slint:12
 msgctxt "Dropdown"
@@ -282,15 +279,12 @@ msgstr "Оберіть варіант…"
 #: ui/components/dropdown.slint:89
 msgctxt "Dropdown"
 msgid "Dropdown options"
-msgstr ""
+msgstr "Параметри випадаючих списків"
 
 #: ui/components/dropdown.slint:135
-#, fuzzy
-#| msgctxt "Games"
-#| msgid "Select All"
 msgctxt "Dropdown"
 msgid "Selected"
-msgstr "Вибрати все"
+msgstr "Вибрано"
 
 #~ msgctxt "About"
 #~ msgid "Built with Slint"
