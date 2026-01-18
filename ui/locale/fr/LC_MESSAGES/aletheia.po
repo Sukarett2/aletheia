@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2025-09-22 17:32+0000\n"
+"POT-Creation-Date: 2026-01-17 08:38+0000\n"
 "PO-Revision-Date: 2025-09-07 00:28+0000\n"
 "Last-Translator: \"J. Lavoie\" <j.lavoie@net-c.ca>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/aletheia/ui/fr/>\n"
@@ -12,204 +12,204 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 5.14-dev\n"
 
-#: ui/updater.slint:28
+#: ui/updater.slint:29
 msgctxt "Updater"
 msgid "Update Available"
 msgstr "Mise à jour disponible"
 
-#: ui/updater.slint:51
+#: ui/updater.slint:52
 msgctxt "Updater"
 msgid "Current"
 msgstr "Actuel"
 
-#: ui/updater.slint:81
+#: ui/updater.slint:82
 msgctxt "Updater"
 msgid "New"
 msgstr "Nouveau"
 
-#: ui/updater.slint:105
+#: ui/updater.slint:106
 msgctxt "Updater"
 msgid "What's New"
 msgstr "Quoi de neuf"
 
-#: ui/updater.slint:142
+#: ui/updater.slint:143
 msgctxt "Updater"
 msgid "Skip"
 msgstr "Ignorer"
 
-#: ui/updater.slint:149
+#: ui/updater.slint:150
 msgctxt "Updater"
 msgid "Download"
 msgstr "Télécharger"
 
-#: ui/screens/settings.slint:59
+#: ui/screens/settings.slint:60
 msgctxt "Settings"
 msgid "Game Data Location"
 msgstr "Emplacement des données du jeu"
 
-#: ui/screens/settings.slint:73
+#: ui/screens/settings.slint:74
 msgctxt "Settings"
 msgid "Choose where your games will be saved"
 msgstr "Choisissez où vos jeux seront enregistrés"
 
-#: ui/screens/settings.slint:91
+#: ui/screens/settings.slint:92
 msgctxt "Settings"
 msgid "Browse"
 msgstr "Parcourir"
 
-#: ui/screens/settings.slint:120
+#: ui/screens/settings.slint:121
 msgctxt "Settings"
 msgid "Steam Account"
 msgstr "Compte Steam"
 
-#: ui/screens/settings.slint:137
+#: ui/screens/settings.slint:138
 msgctxt "Settings"
 msgid "Choose the Steam account for your games"
 msgstr "Choisissez le compte Steam pour vos jeux"
 
-#: ui/screens/settings.slint:144
+#: ui/screens/settings.slint:145
 msgctxt "Settings"
 msgid "Only affects games that save in the Steam userdata directory"
 msgstr ""
 "Affecte seulement les jeux qui s'enregistent dans le répertoire utilisateur "
 "Steam"
 
-#: ui/screens/settings.slint:156
+#: ui/screens/settings.slint:157
 msgctxt "Settings"
 msgid "Select an account…"
 msgstr "Sélectionnez un compte…"
 
-#: ui/screens/settings.slint:183
+#: ui/screens/settings.slint:184
 msgctxt "Settings"
 msgid "GameDB"
 msgstr "GameDB"
 
-#: ui/screens/settings.slint:197
+#: ui/screens/settings.slint:198
 msgctxt "Settings"
 msgid "Download the latest copy of the GameDB"
 msgstr "Télécharger la dernière copie"
 
-#: ui/screens/settings.slint:206
+#: ui/screens/settings.slint:207
 msgctxt "Settings"
 msgid "Update GameDB"
 msgstr "Mettre à jour"
 
-#: ui/screens/settings.slint:233
+#: ui/screens/settings.slint:234
 msgctxt "Settings"
 msgid "Updates"
 msgstr "Mises à jour"
 
-#: ui/screens/settings.slint:247
+#: ui/screens/settings.slint:248
 msgctxt "Settings"
 msgid "Configure automatic update checking"
 msgstr "Configurer le contrôle automatique de mise à jour"
 
-#: ui/screens/settings.slint:258
+#: ui/screens/settings.slint:259
 msgctxt "Settings"
 msgid "Check for updates automatically"
 msgstr "Vérifiez les mises à jour automatiquement"
 
-#: ui/screens/settings.slint:276
+#: ui/screens/settings.slint:277
 msgctxt "Settings"
 msgid "Save"
 msgstr "Enregistrer"
 
-#: ui/screens/games.slint:30
+#: ui/screens/games.slint:31
 msgctxt "Games"
 msgid "No games found"
 msgstr "Aucun jeu trouvé"
 
-#: ui/screens/games.slint:44
+#: ui/screens/games.slint:45
 msgctxt "Games"
 msgid "Refresh"
 msgstr "Actualiser"
 
-#: ui/screens/games.slint:61
+#: ui/screens/games.slint:62
 msgctxt "Games"
 msgid "Search games…"
 msgstr "Rechercher des jeux…"
 
-#: ui/screens/games.slint:67
+#: ui/screens/games.slint:68
 msgctxt "Games"
 msgid "Selecting {} / {} games"
 msgstr "Sélection de {} / {} jeux"
 
-#: ui/screens/games.slint:81
+#: ui/screens/games.slint:82
 msgctxt "Games"
 msgid "Backup"
 msgstr "Sauvegarde"
 
-#: ui/screens/games.slint:89
+#: ui/screens/games.slint:90
 msgctxt "Games"
 msgid "Restore"
 msgstr "Restaurer"
 
-#: ui/screens/games.slint:98
+#: ui/screens/games.slint:99
 msgctxt "Games"
 msgid "Clear Selection"
 msgstr "Effacer la sélection"
 
-#: ui/screens/games.slint:98
+#: ui/screens/games.slint:99
 msgctxt "Games"
 msgid "Select All"
 msgstr "Tour sélectionner"
 
-#: ui/screens/games.slint:99
+#: ui/screens/games.slint:100
 msgctxt "Games"
 msgid "{} Filtered"
 msgstr "{} filtré"
 
-#: ui/screens/about.slint:35
+#: ui/screens/about.slint:36
 msgctxt "About"
 msgid "Application Info"
 msgstr "Infos sur l'application"
 
-#: ui/screens/about.slint:49
+#: ui/screens/about.slint:50
 msgctxt "About"
 msgid "Aletheia is an open-source game save backup tool"
 msgstr "Aletheia est un outil de sauvegarde de jeu à code ouvert"
 
-#: ui/screens/about.slint:56
+#: ui/screens/about.slint:57
 msgctxt "About"
 msgid "Version: {}"
 msgstr "Version : {}"
 
-#: ui/screens/about.slint:63
+#: ui/screens/about.slint:64
 msgctxt "About"
 msgid "License: {}"
 msgstr "Licence : {}"
 
-#: ui/screens/about.slint:70
+#: ui/screens/about.slint:71
 msgctxt "About"
 msgid "Logo by: {}"
 msgstr "Logo de : {}"
 
-#: ui/screens/about.slint:83
+#: ui/screens/about.slint:84
 msgctxt "About"
 msgid "View Source Code"
 msgstr "Voir le code source"
 
-#: ui/screens/about.slint:90
+#: ui/screens/about.slint:91
 msgctxt "About"
 msgid "View License"
 msgstr "Voir la licence"
 
-#: ui/screens/about.slint:97
+#: ui/screens/about.slint:98
 msgctxt "About"
 msgid "Support the Project"
 msgstr "Soutenir le projet"
 
-#: ui/app.slint:42
+#: ui/app.slint:43
 msgctxt "App"
 msgid "Games"
 msgstr "Jeux"
 
-#: ui/app.slint:55
+#: ui/app.slint:56
 msgctxt "App"
 msgid "Settings"
 msgstr "Paramètres"
 
-#: ui/app.slint:62
+#: ui/app.slint:63
 msgctxt "App"
 msgid "About"
 msgstr "À propos"
@@ -247,7 +247,48 @@ msgctxt "NotificationLogic"
 msgid "Failed to update GameDB"
 msgstr "Mettre à jour"
 
-#: ui/components/dropdown.slint:11
+#: ui/logic/notification.slint:36
+msgctxt "NotificationLogic"
+msgid "Archive corrupted"
+msgstr ""
+
+#: ui/logic/notification.slint:37
+msgctxt "NotificationLogic"
+msgid "Invalid archive"
+msgstr ""
+
+#: ui/logic/notification.slint:38
+msgctxt "NotificationLogic"
+msgid "I/O error"
+msgstr ""
+
+#: ui/logic/notification.slint:39
+msgctxt "NotificationLogic"
+msgid "Unsupported archive version"
+msgstr ""
+
+#: ui/logic/notification.slint:40
+#, fuzzy
+#| msgctxt "Games"
+#| msgid "No games found"
+msgctxt "NotificationLogic"
+msgid "No backups found"
+msgstr "Aucun jeu trouvé"
+
+#: ui/components/dropdown.slint:12
 msgctxt "Dropdown"
 msgid "Select an option…"
 msgstr "Sélectionnez une option…"
+
+#: ui/components/dropdown.slint:89
+msgctxt "Dropdown"
+msgid "Dropdown options"
+msgstr ""
+
+#: ui/components/dropdown.slint:135
+#, fuzzy
+#| msgctxt "Games"
+#| msgid "Select All"
+msgctxt "Dropdown"
+msgid "Selected"
+msgstr "Tour sélectionner"
