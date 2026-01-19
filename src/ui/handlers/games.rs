@@ -120,7 +120,7 @@ pub fn setup(app: &slint::Weak<App>, config: &Rc<RefCell<AletheiaConfig>>) {
             let mut selected_games: Vec<UiGame> = selected_games_model.iter().collect();
 
             if let Some(index) = selected_games.iter().position(|g| g.name == game.name) {
-                selected_games.remove(index);
+                selected_games.swap_remove(index);
             } else {
                 selected_games.push(game);
             }
