@@ -35,5 +35,42 @@
     <string>uk</string>
     <string>zh-Hans</string>
   </array>
+  <key>UTExportedTypeDeclarations</key>
+  <array>
+    <dict>
+      <key>UTTypeIdentifier</key>
+      <string>moe.spencer.aletheia.archive</string>
+      <key>UTTypeDescription</key>
+      <string>Aletheia save game archive</string>
+      <key>UTTypeConformsTo</key>
+      <array>
+        <string>public.data</string>
+      </array>
+      <key>UTTypeTagSpecification</key>
+      <dict>
+        <key>public.filename-extension</key>
+        <array>
+          <string>aletheia</string>
+        </array>
+        <key>public.mime-type</key>
+        <string>application/x-aletheia-archive</string>
+      </dict>
+    </dict>
+  </array>
+  <key>CFBundleDocumentTypes</key>
+  <array>
+    <dict>
+      <key>CFBundleTypeName</key>
+      <string>Aletheia Save Game</string>
+      <key>LSItemContentTypes</key>
+      <array>
+        <string>moe.spencer.aletheia.archive</string>
+      </array>
+      <key>LSHandlerRank</key>
+      <string>Owner</string>
+      <key>CFBundleTypeRole</key>
+      <string>Editor</string>
+    </dict>
+  </array>
 </dict>
 </plist>
