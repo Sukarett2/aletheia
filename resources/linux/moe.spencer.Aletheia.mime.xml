@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-aletheia-archive">
+    <comment>Aletheia save game archive</comment>
+    <glob pattern="*.aletheia"/>
+    <magic><match value="ALETHEIA" type="string" offset="0"/></magic>
+  </mime-type>
+</mime-info>

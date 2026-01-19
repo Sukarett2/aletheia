@@ -5,4 +5,5 @@ Comment=Game save backup tool
 Icon=moe.spencer.Aletheia
 Exec=aletheia
 Keywords=backup
+MimeType=application/x-aletheia-archive
 Categories=Game;X-Backup;X-Slint;
