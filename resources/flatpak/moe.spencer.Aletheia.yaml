@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025-2026 Spencer
+# SPDX-License-Identifier: CC0-1.0
+
 app-id: moe.spencer.Aletheia
 runtime: org.kde.Platform
 runtime-version: '6.9'

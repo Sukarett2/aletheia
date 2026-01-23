@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025-2026 Spencer
+# SPDX-License-Identifier: CC0-1.0
+
 install:
   cargo build --release
   sudo install -Dm755 target/release/aletheia /usr/bin

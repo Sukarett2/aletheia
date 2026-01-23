@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Spencer
+# SPDX-License-Identifier: CC0-1.0
+
 name: Mirror to Codeberg
 concurrency:
   group: ${{ github.ref }}
