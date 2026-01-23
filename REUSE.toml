@@ -8,4 +8,5 @@ SPDX-PackageDownloadLocation = "https://github.com/Spencer-0003/aletheia"
 [[annotations]]
 path = "ui/locale/*/LC_MESSAGES/aletheia.po"
 precedence = "override"
+SPDX-FileCopyrightText = "2025-2026 Spencer"
 SPDX-License-Identifier = "AGPL-3.0-only"
