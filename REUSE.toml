@@ -6,7 +6,7 @@ SPDX-PackageName = "Aletheia"
 SPDX-PackageDownloadLocation = "https://github.com/Spencer-0003/aletheia"
 
 [[annotations]]
-path = ["resources/logo/moe.spencer.Aletheia.png", "resources/logo/scalable.svg", "resources/logo/windows.ico", "resources/logo/mac/aletheia.icns"]
+path = ["resources/logo/moe.spencer.Aletheia.png", "resources/logo/scalable.svg", "resources/logo/windows.ico", "resources/mac/aletheia.icns"]
 precedence = "override"
 SPDX-FileCopyrightText = "2025 Spencer"
 SPDX-License-Identifier = "CC-BY-SA-4.0"
