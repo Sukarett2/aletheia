@@ -852,6 +852,7 @@ SILENT HILL 2:
 SILENT HILL f:
   files:
     windows:
+      - "{LocalAppData}/Shf/Saved/SaveGames/76561197960265729/*.sav" # GOG variant
       - "{LocalAppData}/SHf/Saved/SaveGames/{SteamID64}/*.sav"
 SUPERHOT:
   files:
