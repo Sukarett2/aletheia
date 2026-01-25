@@ -847,7 +847,7 @@ SCARLET NEXUS:
 SILENT HILL 2:
   files:
     windows:
-      - "{LocalAppData}/SilentHill2/Saved/SaveGames/*/*.sav"
+      - "{LocalAppData}/SilentHill2/Saved/SaveGames/{SteamID64}/*.sav"
 SILENT HILL f:
   files:
     windows:
