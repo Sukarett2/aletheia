@@ -847,7 +847,8 @@ SCARLET NEXUS:
 SILENT HILL 2:
   files:
     windows:
-      - "{LocalAppData}/SilentHill2/Saved/SaveGames/*.sav" # GOG Offline installer version
+      - "{LocalAppData}/SilentHill2/Saved/SaveGames/*.sav" # GOG Offline installer variant
+      - "{LocalAppData}/SilentHill2/Saved/SaveGames/197901066483463505/*.sav" # GOG variant
       - "{LocalAppData}/SilentHill2/Saved/SaveGames/{SteamID64}/*.sav"
 SILENT HILL f:
   files:
