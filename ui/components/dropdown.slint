@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Spencer
+// SPDX-FileCopyrightText: 2025-2026 Spencer
 // SPDX-License-Identifier: AGPL-3.0-only
 
 import { DropdownOption } from "../structs/dropdown_option.slint";
@@ -13,30 +13,30 @@ export component Dropdown {
   in-out property <string> value: "";
   out property <string> label: "";
   out property <bool> expanded <=> dropdown_menu.visible;
+  private property <bool> expandable: root.options.length > 1;
   callback changed(string);
 
-  for option in root.options: ForEach {
+  for option in options: ForEach {
     init => {
-      if root.value == option.value {
-        root.label = option.label;
+      if value == option.value {
+        label = option.label;
       }
     }
   }
 
   Rectangle {
     background: ThemeLogic.colors.surface;
-    opacity: root.enabled ? 100% : 50%;
-    border-radius: 4px;
     border-width: 1px;
+    border-radius: 4px;
     border-color: ThemeLogic.colors.surface_border;
     drop-shadow-blur: 8px;
     drop-shadow-color: ThemeLogic.colors.surface_shadow;
     drop-shadow-offset-y: 4px;
     accessible-role: button;
-    accessible-enabled: root.enabled;
-    accessible-expandable: true;
-    accessible-expanded: root.expanded;
     accessible-label: root.label.is-empty ? root.placeholder : root.label;
+    accessible-enabled: root.enabled;
+    accessible-expanded: root.expanded;
+    accessible-expandable: root.expandable;
 
     HorizontalLayout {
       padding-left: 12px;
@@ -48,7 +48,7 @@ export component Dropdown {
         private property <bool> show_label: !root.label.is-empty;
         text: show_label ? root.label : root.placeholder;
         color: show_label ? ThemeLogic.colors.text_primary : ThemeLogic.colors.text_placeholder;
-        opacity: show_label ? 65% : 40%;
+        opacity: root.enabled ? (show_label ? 65% : 40%) : 50%;
         font-family: "Inter";
         font-size: 14px;
         font-weight: 400;
@@ -59,6 +59,7 @@ export component Dropdown {
       Image {
         source: @image-url("../assets/arrow_drop_down.svg");
         colorize: ThemeLogic.colors.primary;
+        opacity: root.enabled && root.expandable ? 100% : 50%;
         rotation-angle: root.expanded ? 180deg : 0deg;
         vertical-alignment: center;
 
@@ -67,7 +68,7 @@ export component Dropdown {
     }
 
     TouchArea {
-      enabled: root.enabled;
+      enabled: root.enabled && root.expandable;
       mouse-cursor: pointer;
       clicked => { root.expanded = !root.expanded; }
     }
