@@ -24,6 +24,7 @@ jobs:
             rules: {
               document-start: disable,
               line-length: disable,
-              key-ordering: enable
+              key-ordering: enable,
+              comments: { min-spaces-from-content: 1 }
             }
           }' -f github -s resources/gamedb.yaml
