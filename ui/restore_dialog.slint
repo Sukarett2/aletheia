@@ -47,10 +47,10 @@ export component RestoreDialog inherits Window {
         }
 
         if !RestoreLogic.error.is-empty: Rectangle {
-          background: rgba(243, 139, 168, 0.1);
+          background: ThemeLogic.colors.restore_dialog_error_background;
           border-radius: 8px;
           border-width: 1px;
-          border-color: rgba(243, 139, 168, 0.3);
+          border-color: ThemeLogic.colors.restore_dialog_error_border;
 
           VerticalLayout {
             padding: 12px;
