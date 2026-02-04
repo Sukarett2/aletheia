@@ -5,3 +5,4 @@ mod app;
 mod handlers;
 
 pub use app::run;
+pub use app::run_restore_dialog;

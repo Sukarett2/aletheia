@@ -10,15 +10,18 @@ import { Notification } from "./components/notification.slint";
 import { AppLogic } from "./logic/app.slint";
 import { GameLogic } from "./logic/game.slint";
 import { NotificationLogic } from "./logic/notification.slint";
+import { RestoreLogic } from "./logic/restore.slint";
 import { UpdaterLogic } from "./logic/updater.slint";
 import { About } from "./screens/about.slint";
 import { Games, GamesScreenLogic } from "./screens/games.slint";
+import { RestoreDialog } from "./restore_dialog.slint";
 import { Settings, SettingsScreenLogic } from "./screens/settings.slint";
 import { ThemeLogic } from "./logic/theme.slint";
 import { Updater } from "./updater.slint";
 import { UiGame } from "./structs/ui_game.slint";
 
 export { AppLogic, GamesScreenLogic, GameLogic, NotificationLogic, SettingsScreenLogic }
+export { RestoreDialog, RestoreLogic }
 export { Updater, UpdaterLogic }
 
 export component App inherits Window {

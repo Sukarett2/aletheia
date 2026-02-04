@@ -1,0 +1,15 @@
+export global RestoreLogic {
+  in-out property <string> game_name;
+  in-out property <string> error;
+  callback cancel();
+  callback restore();
+
+  public pure function translate_error() -> string {
+    error == "GAME_NOT_INSTALLED" ? @tr("You do not have {} installed, install it first and try again.", game_name)
+    : error == "ARCHIVE_CORRUPTED" ? @tr("Archive corrupted")
+    : error == "INVALID_ARCHIVE" ? @tr("Invalid archive")
+    : error == "IO_ERROR" ? @tr("I/O error")
+    : error == "UNSUPPORTED_ARCHIVE_VERSION" ? @tr("Unsupported archive version")
+    : error
+  }
+}
