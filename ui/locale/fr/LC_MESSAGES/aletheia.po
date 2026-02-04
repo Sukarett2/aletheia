@@ -1,16 +1,46 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2026-01-27 04:10+0000\n"
-"PO-Revision-Date: 2025-09-07 00:28+0000\n"
-"Last-Translator: \"J. Lavoie\" <j.lavoie@net-c.ca>\n"
+"POT-Creation-Date: 2026-02-04 10:59+0000\n"
+"PO-Revision-Date: 2026-02-04 11:00+0000\n"
+"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/aletheia/ui/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.16-dev\n"
+
+#: ui/updater.slint:29
+msgctxt "Updater"
+msgid "Update Available"
+msgstr "Mise à jour disponible"
+
+#: ui/updater.slint:52
+msgctxt "Updater"
+msgid "Current"
+msgstr "Actuel"
+
+#: ui/updater.slint:82
+msgctxt "Updater"
+msgid "New"
+msgstr "Nouveau"
+
+#: ui/updater.slint:106
+msgctxt "Updater"
+msgid "What's New"
+msgstr "Quoi de neuf"
+
+#: ui/updater.slint:143
+msgctxt "Updater"
+msgid "Skip"
+msgstr "Ignorer"
+
+#: ui/updater.slint:150
+msgctxt "Updater"
+msgid "Download"
+msgstr "Télécharger"
 
 #: ui/screens/settings.slint:60
 msgctxt "Settings"
@@ -50,12 +80,9 @@ msgid "Select an account…"
 msgstr "Sélectionnez un compte…"
 
 #: ui/screens/settings.slint:157
-#, fuzzy
-#| msgctxt "Games"
-#| msgid "No games found"
 msgctxt "Settings"
 msgid "No accounts found…"
-msgstr "Aucun jeu trouvé"
+msgstr "Aucun compte trouvé…"
 
 #: ui/screens/settings.slint:186
 msgctxt "Settings"
@@ -177,35 +204,156 @@ msgctxt "About"
 msgid "Support the Project"
 msgstr "Soutenir le projet"
 
-#: ui/updater.slint:29
-msgctxt "Updater"
-msgid "Update Available"
-msgstr "Mise à jour disponible"
+#: ui/app.slint:46
+msgctxt "App"
+msgid "Games"
+msgstr "Jeux"
 
-#: ui/updater.slint:52
-msgctxt "Updater"
-msgid "Current"
-msgstr "Actuel"
+#: ui/app.slint:59
+msgctxt "App"
+msgid "Settings"
+msgstr "Paramètres"
 
-#: ui/updater.slint:82
-msgctxt "Updater"
-msgid "New"
-msgstr "Nouveau"
+#: ui/app.slint:66
+msgctxt "App"
+msgid "About"
+msgstr "À propos"
 
-#: ui/updater.slint:106
-msgctxt "Updater"
-msgid "What's New"
-msgstr "Quoi de neuf"
+#: ui/restore_dialog.slint:9
+#, fuzzy
+#| msgctxt "About"
+#| msgid "Aletheia is an open-source game save backup tool"
+msgctxt "RestoreDialog"
+msgid "Aletheia - Restore backup"
+msgstr "Aletheia est un outil de sauvegarde de jeu à code ouvert"
 
-#: ui/updater.slint:143
-msgctxt "Updater"
-msgid "Skip"
-msgstr "Ignorer"
+#: ui/restore_dialog.slint:26
+#, fuzzy
+#| msgctxt "Games"
+#| msgid "Restore"
+msgctxt "RestoreDialog"
+msgid "Restore Backup?"
+msgstr "Restaurer"
 
-#: ui/updater.slint:150
-msgctxt "Updater"
-msgid "Download"
-msgstr "Télécharger"
+#: ui/restore_dialog.slint:35
+msgctxt "RestoreDialog"
+msgid "Are you sure you want to restore {}?"
+msgstr ""
+
+#: ui/restore_dialog.slint:42
+msgctxt "RestoreDialog"
+msgid "This will overwrite any existing save data."
+msgstr ""
+
+#: ui/restore_dialog.slint:74
+msgctxt "RestoreDialog"
+msgid "Cancel"
+msgstr ""
+
+#: ui/restore_dialog.slint:74
+msgctxt "RestoreDialog"
+msgid "Close"
+msgstr ""
+
+#: ui/restore_dialog.slint:82
+#, fuzzy
+#| msgctxt "Games"
+#| msgid "Restore"
+msgctxt "RestoreDialog"
+msgid "Restore"
+msgstr "Restaurer"
+
+#: ui/logic/restore.slint:11
+msgctxt "RestoreLogic"
+msgid "You do not have {} installed, install it first and try again."
+msgstr ""
+
+#: ui/logic/restore.slint:12
+#, fuzzy
+#| msgctxt "NotificationLogic"
+#| msgid "Archive corrupted"
+msgctxt "RestoreLogic"
+msgid "Archive corrupted"
+msgstr "Archive corrompue"
+
+#: ui/logic/restore.slint:13
+#, fuzzy
+#| msgctxt "NotificationLogic"
+#| msgid "Invalid archive"
+msgctxt "RestoreLogic"
+msgid "Invalid archive"
+msgstr "Archive invalide"
+
+#: ui/logic/restore.slint:14
+#, fuzzy
+#| msgctxt "NotificationLogic"
+#| msgid "I/O error"
+msgctxt "RestoreLogic"
+msgid "I/O error"
+msgstr "Erreur E/S"
+
+#: ui/logic/restore.slint:15
+#, fuzzy
+#| msgctxt "NotificationLogic"
+#| msgid "Unsupported archive version"
+msgctxt "RestoreLogic"
+msgid "Unsupported archive version"
+msgstr "Version de l'archive non prise en charge"
+
+#: ui/logic/notification.slint:30
+msgctxt "NotificationLogic"
+msgid "Set your Steam account in settings"
+msgstr "Définir votre compte Steam dans les paramètres"
+
+#: ui/logic/notification.slint:31
+msgctxt "NotificationLogic"
+msgid "Backup directory does not exist"
+msgstr "Le dossier de sauvegarde n'existe pas"
+
+#: ui/logic/notification.slint:32
+msgctxt "NotificationLogic"
+msgid "Successfully saved settings"
+msgstr "Les paramètres ont bien été enregistrés"
+
+#: ui/logic/notification.slint:33
+msgctxt "NotificationLogic"
+msgid "Successfully updated GameDB"
+msgstr "GameDB a bien été mis à jour"
+
+#: ui/logic/notification.slint:34
+msgctxt "NotificationLogic"
+msgid "GameDB is already up to date"
+msgstr "GameDB est déjà à jour"
+
+#: ui/logic/notification.slint:35
+msgctxt "NotificationLogic"
+msgid "Failed to update GameDB"
+msgstr "Échec de la mise à jour de GameDB"
+
+#: ui/logic/notification.slint:36
+msgctxt "NotificationLogic"
+msgid "Archive corrupted"
+msgstr "Archive corrompue"
+
+#: ui/logic/notification.slint:37
+msgctxt "NotificationLogic"
+msgid "Invalid archive"
+msgstr "Archive invalide"
+
+#: ui/logic/notification.slint:38
+msgctxt "NotificationLogic"
+msgid "I/O error"
+msgstr "Erreur E/S"
+
+#: ui/logic/notification.slint:39
+msgctxt "NotificationLogic"
+msgid "Unsupported archive version"
+msgstr "Version de l'archive non prise en charge"
+
+#: ui/logic/notification.slint:40
+msgctxt "NotificationLogic"
+msgid "No backups found"
+msgstr "Aucune sauvegarde trouvée"
 
 #: ui/components/dropdown.slint:12
 msgctxt "Dropdown"
@@ -215,88 +363,9 @@ msgstr "Sélectionnez une option…"
 #: ui/components/dropdown.slint:90
 msgctxt "Dropdown"
 msgid "Dropdown options"
-msgstr ""
+msgstr "Options du menu déroulant"
 
 #: ui/components/dropdown.slint:136
-#, fuzzy
-#| msgctxt "Games"
-#| msgid "Select All"
 msgctxt "Dropdown"
 msgid "Selected"
-msgstr "Tour sélectionner"
-
-#: ui/app.slint:43
-msgctxt "App"
-msgid "Games"
-msgstr "Jeux"
-
-#: ui/app.slint:56
-msgctxt "App"
-msgid "Settings"
-msgstr "Paramètres"
-
-#: ui/app.slint:63
-msgctxt "App"
-msgid "About"
-msgstr "À propos"
-
-#: ui/logic/notification.slint:30
-msgctxt "NotificationLogic"
-msgid "Set your Steam account in settings"
-msgstr ""
-
-#: ui/logic/notification.slint:31
-msgctxt "NotificationLogic"
-msgid "Backup directory does not exist"
-msgstr ""
-
-#: ui/logic/notification.slint:32
-msgctxt "NotificationLogic"
-msgid "Successfully saved settings"
-msgstr ""
-
-#: ui/logic/notification.slint:33
-msgctxt "NotificationLogic"
-msgid "Successfully updated GameDB"
-msgstr ""
-
-#: ui/logic/notification.slint:34
-msgctxt "NotificationLogic"
-msgid "GameDB is already up to date"
-msgstr ""
-
-#: ui/logic/notification.slint:35
-#, fuzzy
-#| msgctxt "Settings"
-#| msgid "Update GameDB"
-msgctxt "NotificationLogic"
-msgid "Failed to update GameDB"
-msgstr "Mettre à jour"
-
-#: ui/logic/notification.slint:36
-msgctxt "NotificationLogic"
-msgid "Archive corrupted"
-msgstr ""
-
-#: ui/logic/notification.slint:37
-msgctxt "NotificationLogic"
-msgid "Invalid archive"
-msgstr ""
-
-#: ui/logic/notification.slint:38
-msgctxt "NotificationLogic"
-msgid "I/O error"
-msgstr ""
-
-#: ui/logic/notification.slint:39
-msgctxt "NotificationLogic"
-msgid "Unsupported archive version"
-msgstr ""
-
-#: ui/logic/notification.slint:40
-#, fuzzy
-#| msgctxt "Games"
-#| msgid "No games found"
-msgctxt "NotificationLogic"
-msgid "No backups found"
-msgstr "Aucun jeu trouvé"
+msgstr "Sélectionné"
