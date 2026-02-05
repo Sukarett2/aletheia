@@ -539,6 +539,10 @@ IW7-Mod:
   files:
     windows:
       - "{GameRoot}/iw7-mod/players2/user/**/*"
+Iron Lung:
+  files:
+    windows:
+      - "{GameRoot}/save/progress"
 It Takes Two:
   files:
     windows:
