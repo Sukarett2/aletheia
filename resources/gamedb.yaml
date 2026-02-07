@@ -351,11 +351,11 @@ Elden Bling:
 "FATAL FRAME / PROJECT ZERO: Maiden of Black Water":
   files:
     windows:
-      - "{Documents}/KoeiTecmo/FATAL FRAME MOBW/SAVEDATA"
+      - "{Documents}/KoeiTecmo/FATAL FRAME MOBW/SAVEDATA/*"
 "FATAL FRAME / PROJECT ZERO: Mask of the Lunar Eclipse":
   files:
     windows:
-      - "{Documents}/KoeiTecmo/FATAL FRAME MOL/SAVEDATA"
+      - "{Documents}/KoeiTecmo/FATAL FRAME MOL/SAVEDATA/*"
 FUNKO FUSION:
   files:
     windows:
