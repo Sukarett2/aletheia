@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Spencer
+// SPDX-FileCopyrightText: 2025-2026 Spencer
 // SPDX-License-Identifier: AGPL-3.0-only
 
 #![warn(clippy::pedantic)]
@@ -51,27 +51,37 @@ fn main() {
     log::info!("Aletheia v{} (Windows)", env!("CARGO_PKG_VERSION"));
 
     let config = config::Config::load();
-    migrate::run(&config); // TODO: Remove after 1.3.
+    if let Some(ref cfg) = config {
+        migrate::run(cfg); // TODO: Remove after 1.3.
+    }
 
     let mut args = std::env::args().skip(1);
 
     if let Some(cmd) = args.next() {
+        let cfg = config.unwrap_or_else(|| {
+            let default = config::Config::default();
+            config::Config::save(&default);
+            default
+        });
+
         if cmd.ends_with(".aletheia") {
-            ui::run_restore_dialog(&config, &cmd);
+            ui::run_restore_dialog(&cfg, &cmd);
             return;
         }
 
         let args = Args::parse(args);
         match cmd.as_str() {
-            "backup" => commands::Backup::run(args, &config),
-            "restore" => commands::Restore::run(args, &config),
+            "backup" => commands::Backup::run(args, &cfg),
+            "restore" => commands::Restore::run(args, &cfg),
             #[cfg(all(feature = "updater", not(debug_assertions)))]
             "update" => commands::Update::run(args, &config),
-            "update_gamedb" => commands::UpdateGameDb::run(args, &config),
-            "update_custom_gamedbs" => commands::UpdateCustom::run(args, &config),
+            "update_gamedb" => commands::UpdateGameDb::run(args, &cfg),
+            "update_custom_gamedbs" => commands::UpdateCustom::run(args, &cfg),
             _ => eprintln!("Command not found.")
         }
+    } else if let Some(ref cfg) = config {
+        ui::run(cfg);
     } else {
-        ui::run(&config);
+        ui::run_first_time_setup();
     }
 }
