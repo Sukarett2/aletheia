@@ -35,3 +35,6 @@ Unleashed Recompiled:
 
 ### Translations
 Translations are managed with [Weblate](https://weblate.org), you can contribute translations [here](https://hosted.weblate.org/projects/aletheia).
+
+### AI Usage Policy
+AI-generated or AI-assisted contributions are not accepted. This includes, but is not limited to, large language models (LLMs), code generators, and AI-based translation tools. All contributions (code, documentation, GameDB entries, and translations) must be written entirely by a human. Pull requests found to include AI-generated or AI-assisted content will be rejected.
