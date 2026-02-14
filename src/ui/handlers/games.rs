@@ -27,7 +27,7 @@ pub fn setup(app: &slint::Weak<App>, config: &Rc<RefCell<AletheiaConfig>>) {
             let select_all = selected_games.row_count() == 0;
 
             let mut games = gamedb::get_installed_games();
-            games.sort_by(|a, b| a.name.to_lowercase().cmp(&b.name.to_lowercase()));
+            games.sort_by_key(|a| a.name.to_lowercase());
 
             let ui_games: Vec<UiGame> = games
                 .into_iter()
