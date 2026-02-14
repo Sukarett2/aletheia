@@ -575,6 +575,10 @@ Kinkoi Golden Time:
   files:
     windows:
       - "{GameRoot}/SaveData/*"
+LOLLIPOP CHAINSAW RePOP:
+  files:
+    windows:
+      - "{LocalAppData}/lollipop/Saved/SaveGames/lollipop.sav"
 Life is Strange:
   files:
     linux:
