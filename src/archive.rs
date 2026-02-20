@@ -10,7 +10,7 @@ use std::time::SystemTime;
 
 const MAGIC: &[u8; 8] = b"ALETHEIA";
 const VERSION: u8 = 1;
-const MIN_HEADER_SIZE: usize = 38;
+const MIN_HEADER_SIZE: usize = 34;
 
 #[derive(Debug, thiserror::Error)]
 pub enum Error {
@@ -23,7 +23,7 @@ pub enum Error {
     #[error("IO error: {0}")]
     Io(#[from] std::io::Error),
     #[error("Serialization error: {0}")]
-    Serialization(#[from] serde_yaml::Error),
+    Serialization(#[from] postcard::Error),
     #[error("Unsupported version: {0}")]
     UnsupportedVersion(u8)
 }
@@ -119,16 +119,16 @@ impl ArchiveWriter {
 
         let index_offset = next_offset;
 
-        serde_yaml::to_writer(&mut file, &entries)?;
+        file.write_all(&postcard::to_allocvec(&entries)?)?;
 
         let index_size = file.stream_position()? - index_offset;
 
-        Self::write_header(&mut file, index_offset, index_size, entries.len(), &self.game)?;
+        Self::write_header(&mut file, index_offset, index_size, &self.game)?;
 
         Ok(())
     }
 
-    fn write_header(file: &mut File, index_offset: u64, index_size: u64, file_count: usize, game: &str) -> Result<()> {
+    fn write_header(file: &mut File, index_offset: u64, index_size: u64, game: &str) -> Result<()> {
         let now = SystemTime::now().duration_since(SystemTime::UNIX_EPOCH).unwrap().as_secs();
         let game_bytes = game.as_bytes();
         let game_len = u8::try_from(game_bytes.len()).unwrap();
@@ -141,7 +141,6 @@ impl ArchiveWriter {
         file.write_all(&game_bytes[..game_len as usize])?;
         file.write_all(&index_offset.to_le_bytes())?;
         file.write_all(&index_size.to_le_bytes())?;
-        file.write_all(&u32::try_from(file_count).unwrap().to_le_bytes())?;
 
         Ok(())
     }
@@ -178,8 +177,14 @@ impl ArchiveReader {
         file.read_exact(&mut index_offset_bytes)?;
         let index_offset = u64::from_le_bytes(index_offset_bytes);
 
+        let mut index_size_bytes = [0u8; 8];
+        file.read_exact(&mut index_size_bytes)?;
+        let index_size = u64::from_le_bytes(index_size_bytes);
+
         file.seek(SeekFrom::Start(index_offset))?;
-        let files: Vec<FileEntry> = serde_yaml::from_reader(&mut file)?;
+        let mut index_bytes = vec![0u8; index_size as usize];
+        file.read_exact(&mut index_bytes)?;
+        let files: Vec<FileEntry> = postcard::from_bytes(&index_bytes)?;
 
         for entry in &files {
             let data = Self::decompress(&mut file, entry)?;
