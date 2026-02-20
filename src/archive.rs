@@ -138,7 +138,7 @@ impl ArchiveWriter {
         file.write_all(&[VERSION])?;
         file.write_all(&now.to_le_bytes())?;
         file.write_all(&game_len.to_le_bytes())?;
-        file.write_all(&game_bytes[..game_len as usize])?;
+        file.write_all(game_bytes)?;
         file.write_all(&index_offset.to_le_bytes())?;
         file.write_all(&index_size.to_le_bytes())?;
 
