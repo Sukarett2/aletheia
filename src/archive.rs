@@ -204,7 +204,7 @@ impl ArchiveReader {
 
         match entry.compression {
             CompressionType::None => Ok(compressed),
-            CompressionType::Zstd => Ok(zstd::decode_all(&compressed[..]).unwrap())
+            CompressionType::Zstd => zstd::decode_all(&compressed[..]).map_err(|_| Error::InvalidArchive)
         }
     }
 
