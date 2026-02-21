@@ -133,14 +133,17 @@ impl ArchiveWriter {
         let game_bytes = game.as_bytes();
         let game_len = u8::try_from(game_bytes.len()).unwrap();
 
+        let mut buf = Vec::with_capacity(MIN_HEADER_SIZE + game_bytes.len());
+        buf.extend_from_slice(MAGIC);
+        buf.push(VERSION);
+        buf.extend_from_slice(&now.to_le_bytes());
+        buf.push(game_len);
+        buf.extend_from_slice(game_bytes);
+        buf.extend_from_slice(&index_offset.to_le_bytes());
+        buf.extend_from_slice(&index_size.to_le_bytes());
+
         file.seek(SeekFrom::Start(0))?;
-        file.write_all(MAGIC)?;
-        file.write_all(&[VERSION])?;
-        file.write_all(&now.to_le_bytes())?;
-        file.write_all(&game_len.to_le_bytes())?;
-        file.write_all(game_bytes)?;
-        file.write_all(&index_offset.to_le_bytes())?;
-        file.write_all(&index_size.to_le_bytes())?;
+        file.write_all(&buf)?;
 
         Ok(())
     }
