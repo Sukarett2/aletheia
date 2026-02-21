@@ -1,1 +1,158 @@
-export component FirstTimeSetup inherits Window {}
+// SPDX-FileCopyrightText: 2026 Spencer
+// SPDX-License-Identifier: AGPL-3.0-only
+
+import { Button } from "./components/button.slint";
+import { Dropdown } from "./components/dropdown.slint";
+import { SetupLogic } from "./logic/setup.slint";
+import { ThemeLogic } from "./logic/theme.slint";
+
+export component FirstTimeSetup inherits Window {
+  title: @tr("Aletheia - First Time Setup");
+  preferred-width: 520px;
+  preferred-height: 480px;
+  width: 520px;
+  height: 480px;
+
+  Rectangle {
+    background: ThemeLogic.colors.surface;
+
+    Rectangle {
+      width: 460px;
+      height: 420px;
+      background: ThemeLogic.colors.background;
+      border-radius: 12px;
+      border-width: 1px;
+      border-color: ThemeLogic.colors.surface_border;
+      drop-shadow-blur: 8px;
+      drop-shadow-color: ThemeLogic.colors.surface_shadow;
+      drop-shadow-offset-y: 4px;
+
+      VerticalLayout {
+        padding: 32px;
+        spacing: 20px;
+        alignment: space-between;
+
+        VerticalLayout {
+          spacing: 8px;
+          alignment: start;
+
+          Text {
+            text: @tr("Welcome to Aletheia");
+            color: ThemeLogic.colors.text_primary;
+            font-family: "Inter";
+            font-size: 24px;
+            font-weight: 700;
+            horizontal-alignment: center;
+          }
+
+          Text {
+            text: @tr("Let's get you set up. You can change these settings at any time.");
+            color: ThemeLogic.colors.text_tertiary;
+            font-family: "Inter";
+            font-size: 13px;
+            horizontal-alignment: center;
+            wrap: word-wrap;
+          }
+        }
+
+        Rectangle {
+          height: 1px;
+          background: ThemeLogic.colors.surface_border;
+        }
+
+        VerticalLayout {
+          spacing: 8px;
+          alignment: start;
+
+          Text {
+            text: @tr("Backup Location");
+            color: ThemeLogic.colors.text_primary;
+            font-family: "Inter";
+            font-size: 14px;
+            font-weight: 600;
+          }
+
+          Text {
+            text: @tr("Where your game saves will be stored on disk.");
+            color: ThemeLogic.colors.text_tertiary;
+            font-family: "Inter";
+            font-size: 12px;
+          }
+
+          HorizontalLayout {
+            spacing: 8px;
+
+            Rectangle {
+              background: ThemeLogic.colors.surface_variant;
+              border-radius: 8px;
+              border-width: 1px;
+              border-color: ThemeLogic.colors.surface_border;
+              height: 40px;
+
+              HorizontalLayout {
+                padding-left: 12px;
+                padding-right: 12px;
+
+                Text {
+                  text: SetupLogic.backup_path;
+                  color: ThemeLogic.colors.text_primary;
+                  font-family: "Inter";
+                  font-size: 13px;
+                  vertical-alignment: center;
+                  overflow: elide;
+                }
+              }
+            }
+
+            Button {
+              text: @tr("Browse");
+              background: ThemeLogic.colors.secondary;
+              width: 90px;
+              height: 40px;
+              clicked => SetupLogic.browse();
+            }
+          }
+        }
+
+        if SetupLogic.steam_account_options.length > 0: VerticalLayout {
+          z: 1;
+          spacing: 8px;
+          alignment: start;
+
+          Text {
+            text: @tr("Steam Account");
+            color: ThemeLogic.colors.text_primary;
+            font-family: "Inter";
+            font-size: 14px;
+            font-weight: 600;
+          }
+
+          Text {
+            text: @tr("Used to locate saves stored in Steam's userdata directory.");
+            color: ThemeLogic.colors.text_tertiary;
+            font-family: "Inter";
+            font-size: 12px;
+          }
+
+          Dropdown {
+            height: 40px;
+            options: SetupLogic.steam_account_options;
+            placeholder: @tr("Select an account…");
+            changed(id) => { SetupLogic.steam_account_id = id; }
+          }
+        }
+
+        HorizontalLayout {
+          alignment: end;
+
+          Button {
+            text: @tr("Continue");
+            width: 120px;
+            height: 40px;
+            clicked => SetupLogic.continue();
+          }
+        }
+      }
+    }
+  }
+}
