@@ -1,0 +1,13 @@
+// SPDX-FileCopyrightText: 2026 Spencer
+// SPDX-License-Identifier: AGPL-3.0-only
+
+import { DropdownOption } from "../structs/dropdown_option.slint";
+
+export global SetupLogic {
+  in-out property <string> backup_path;
+  in-out property <string> steam_account_id;
+  in property <[DropdownOption]> steam_account_options;
+
+  callback browse();
+  callback continue();
+}

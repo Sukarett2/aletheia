@@ -52,7 +52,7 @@ impl Config {
     }
 
     #[cfg(not(target_os = "macos"))]
-    pub fn load() -> Self {
+    pub fn load() -> Option<Self> {
         let dir = Self::get_dir();
         let config_path = dir.join("config.json");
 
@@ -67,19 +67,14 @@ impl Config {
                 Self::save(&cfg);
             }
 
-            return cfg;
+            return Some(cfg);
         }
 
-        let default = Self::default();
-
-        create_dir_all(&dir).unwrap();
-        serde_json::to_writer_pretty(File::create(&config_path).unwrap(), &default).unwrap();
-
-        default
+        None
     }
 
     #[cfg(target_os = "macos")]
-    pub fn load() -> Self {
+    pub fn load() -> Option<Self> {
         let config_path = Self::get_dir().join("moe.spencer.aletheia.plist");
 
         if config_path.exists() {
@@ -93,13 +88,10 @@ impl Config {
                 Self::save(&cfg);
             }
 
-            return cfg;
+            return Some(cfg);
         }
 
-        let default = Self::default();
-        plist::to_writer_xml(File::create(&config_path).unwrap(), &default).unwrap();
-
-        default
+        None
     }
 
     #[cfg(not(target_os = "macos"))]
