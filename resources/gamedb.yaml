@@ -356,6 +356,10 @@ Elden Bling:
   files:
     windows:
       - "{Documents}/KoeiTecmo/FATAL FRAME MOL/SAVEDATA/*"
+FULL METAL SCHOOLGIRL:
+  files:
+    windows:
+      - "{LocalAppData}/FULL METAL SCHOOLGIRL/SaveData/{SteamID64}/*.sav"
 FUNKO FUSION:
   files:
     windows:
