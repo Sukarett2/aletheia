@@ -1013,10 +1013,10 @@ Tales from the Borderlands:
   files:
     windows:
       - "{Documents}/Telltale Games/Tales from the Borderlands/*"
-Tales of Arise:
+Tales of ARISE:
   files:
     windows:
-      - "{LocalAppData}/BANDAI NAMCO Entertainment/Tales of Arise/Saved/SaveGames"
+      - "{LocalAppData}/BANDAI NAMCO Entertainment/Tales of Arise/Saved/SaveGames/{SteamID64}/SaveData/*"
 Terraria:
   files:
     linux:
