@@ -167,7 +167,7 @@ pub fn expand_path(path: &Path, installation_dir: Option<&Path>, steam_account_i
     let local_app_data = app_data();
     let home_dir = home();
 
-    let steam_id_3 = steam_account_id.map_or_else(|| PathBuf::from("*"), |id| PathBuf::from(id));
+    let steam_id_3 = steam_account_id.map_or_else(|| PathBuf::from("*"), PathBuf::from);
     let steam_id_64 = steam_account_id
         .map_or_else(|| PathBuf::from("*"), |id| PathBuf::from(SteamScanner::id3_to_id64(id.parse().unwrap()).to_string()));
     let steam_user_data = {
