@@ -495,6 +495,20 @@ Grand Theft Auto V Legacy:
   files:
     windows:
       - "{SteamUserData}/976730/remote/*/Saves/*"
+Hades:
+  files:
+    windows:
+      - "{Documents}/Saved Games/Hades/Profile*.sjson"
+      - "{Documents}/Saved Games/Hades/Profile*.sjson.bak"
+Hades II:
+  files:
+    windows:
+      - "{Home}/Saved Games/Hades II/Profile*_Temp.sav"
+      - "{Home}/Saved Games/Hades II/Profile*_Temp.sav.bak"
+      - "{Home}/Saved Games/Hades II/Profile*.v.sav"
+      - "{Home}/Saved Games/Hades II/Profile*.v.sav.bak"
+      - "{Home}/Saved Games/Hades II/Profile*.sjson"
+      - "{Home}/Saved Games/Hades II/Profile*.sjson.bak"
 Heart of the Woods:
   files:
     windows:
