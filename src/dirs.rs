@@ -118,7 +118,7 @@ pub fn expand_path(path: &Path, installation_dir: Option<&Path>, prefix: Option<
     let linux_app_data = app_data();
 
     if let Some(wine_prefix) = prefix {
-        let username = if path_contains_subpath(wine_prefix, "Steam/steamapps/compatdata") {
+        let username = if path_contains_subpath(wine_prefix, "steamapps/compatdata") {
             OsString::from("steamuser")
         } else {
             var_os("USER").unwrap()
@@ -250,7 +250,7 @@ pub fn shrink_path(path: &Path, installation_dir: Option<&Path>, prefix: Option<
     let linux_app_data = app_data();
 
     if let Some(wine_prefix) = prefix {
-        let username = if path_contains_subpath(wine_prefix, "Steam/steamapps/compatdata") {
+        let username = if path_contains_subpath(wine_prefix, "steamapps/compatdata") {
             OsString::from("steamuser")
         } else {
             var_os("USER").unwrap()
