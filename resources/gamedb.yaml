@@ -446,6 +446,10 @@ Find Love or Die Trying:
   files:
     windows:
       - "{AppData}/MMFApplications/FNAF6"
+Frostpunk:
+  files:
+    windows:
+      - "{AppData}/11bitstudios/Frostpunk/Default/saves/*.save"
 GYLT:
   files:
     windows:
