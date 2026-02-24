@@ -1177,14 +1177,22 @@ Where Winter Crows Go:
   files:
     linux:
       - "{GameRoot}/game/saves/*"
+"Wolfenstein II: The New Colossus":
+  files:
+    windows:
+      - "{Home}/Saved Games/MachineGames/Wolfenstein II The New Colossus/base/savegame.user/{SteamID64}/**/*"
 "Wolfenstein: The New Order":
   files:
     windows:
-      - "{Home}/Saved Games/MachineGames/Wolfenstein The New Order/base/savegame/*"
+      - "{Home}/Saved Games/MachineGames/Wolfenstein The New Order/base/savegame/**/*"
 "Wolfenstein: The Old Blood":
   files:
     windows:
-      - "{Home}/Saved Games/MachineGames/Wolfenstein The Old Blood/base/savegame/*"
+      - "{Home}/Saved Games/MachineGames/Wolfenstein The Old Blood/base/savegame/**/*"
+"Wolfenstein: Youngblood":
+  files:
+    windows:
+      - "{Home}/Saved Games/MachineGames/Wolfenstein Youngblood/base/savegame.user/{SteamID64}/**/*"
 Yakuza 0:
   files:
     windows:
