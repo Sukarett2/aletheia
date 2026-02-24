@@ -495,10 +495,6 @@ Grand Theft Auto V Legacy:
   files:
     windows:
       - "{Documents}/Rockstar Games/GTA V/Profiles/*/*"
-"Halo: The Master Chief Collection":
-  files:
-    windows:
-      - "{SteamUserData}/976730/remote/*/Saves/*"
 Hades:
   files:
     windows:
@@ -513,6 +509,10 @@ Hades II:
       - "{Home}/Saved Games/Hades II/Profile*.v.sav.bak"
       - "{Home}/Saved Games/Hades II/Profile*.sjson"
       - "{Home}/Saved Games/Hades II/Profile*.sjson.bak"
+"Halo: The Master Chief Collection":
+  files:
+    windows:
+      - "{SteamUserData}/976730/remote/*/Saves/*"
 Heart of the Woods:
   files:
     windows:
